@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+    <header>
+        <h3 id="title"><span class="retro">Retro</span>
+        <span class="review">Results</span></h3><hr>
+    </header>
+
+    {{ insert|safe }}
+    
+{% endblock %}
