@@ -60,11 +60,12 @@
             height: 31px;
             border: 1px solid black;
             margin-left: 5px;
-            margin-right: -13px;
+            margin-right: -16px;
             border-radius: 10px;
             display: inline;
             vertical-align: top;
             margin-top: 0px;
+            text-indent: 10px;
         }
 
         nav button {
@@ -76,8 +77,43 @@
             z-index: 4;
         }
 
-        nav button:focus, nav input[type=text]:focus, section summary:focus {
+        nav button:focus, nav input[type=search]:focus, section summary:focus {
             outline: none;
+        }
+
+        section input[type=text] {
+            margin-left: 20px;
+            border: none;
+            border-bottom: 1px solid black;
+            padding: 10px;
+            width: 50vw;
+            margin-top: 4px;
+        }
+
+        section input[type=password] {
+            margin-left: 20px;
+            border: none;
+            border-bottom: 1px solid black;
+            padding: 10px;
+            width: 50vw;
+            margin-top: 4px;
+        }
+
+        section label {
+            margin-left: 20px;
+            border: none;
+            padding: 10px;
+            width: 50vw;
+            margin-top: 4px;
+        }
+
+        section button {
+            background-color: white;
+            border: none;
+            border-bottom: 1px solid black;
+            margin: 5px;
+            padding: 10px;
+            width: 100%;
         }
 
         .retro, .review {
@@ -159,11 +195,11 @@
     <main>
         <nav>
             <a class="a-none" href="{{ url_for('index') }}">
-                <image class="logo" src="/static/RR.png"></image>
+                <image class="logo" src="/static/img/RR.png"></image>
                 <b><span class="retro">Retro</span> <span class="review">Reviews</span></b>
             </a>
             <form id="search-bar" class="m-r" action="{{ url_for('search') }}" method="POST">
-                <input type="search" name="Search">
+                <input type="search" name="Search" autocomplete="off">
                 <button type="submit" ><image id="search-icon" src="/static/search-transparent.png"></image></button>
             </form>
         </nav>
@@ -175,10 +211,18 @@
 
         </section>
 
+        <!-- <section>
+            
+            {% block comments %}
+            {% endblock %}
+
+        </section> -->
+
         <footer>
-            <image class="icon m-r" href="#" src="/static/chat.png"></image>
-            <image class="icon" href="#" src="/static/book.png"></image>
-            <image class="icon" href="#" src="/static/profile.png"></image>
+            <a class="a-none" href=" {{ url_for('login') }} ">Create an account</a>
+            <!-- <image class="icon m-r" href="#" src="/static/img/chat.png"></image>
+            <image class="icon" href="#" src="/static/img/book.png"></image>
+            <image class="icon" href="#" src="/static/img/profile.png"></image> -->
         </footer>
     </main>
 </body>

@@ -9,14 +9,15 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
 @app.route("/search", methods=["POST"])
 def search():
     text = request.form.get("Search")
     return result(text)
-
-
-def present(url):
-    return render_template(url+".html")
 
 
 @app.route("/result")
@@ -33,22 +34,24 @@ def result(query):
     if len(results) == 0:
         response = response+"<div class='result-div'><p>What you have entered is unable to find any matching website</p></div>"
     else:
-        response = response+"<span>You have "+str(len(results))+" results.</span>"
-    
+        response = response+"<span>You have "+str(len(results))+" results.</span>"    
     for i in range(0, len(results)):
         if is_red:
-            response = response+"<div class='result-div'><a class='red' href='templates/"+results[i].lower().replace(" ", "_")+".html' >"+results[i].title()+"</a></div>"
+            response = response+"<div class='result-div'><a class='red' href='"+str(results[i].lower().replace(" ", "_"))+"' >"+results[i].title()+"</a></div>"
             is_red = False
         else:
-            response = response+"<div class='result-div'><a class='blue' href='templates/"+results[i].lower().replace(" ", "_")+".html' >"+results[i].title()+"</a></div>"
+            response = response+"<div class='result-div'><a class='blue' href='"+str(results[i].lower().replace(" ", "_"))+"' >"+results[i].title()+"</a></div>"
             is_red = True
-
-    present(results[i].lower().replace(" ", "_"))
     return render_template("result.html", insert=response)
+
+
+@app.route("/the_legend_of_zelda_ocarina_of_time")
+def process():
+    return render_template("the_legend_of_zelda_ocarina_of_time.html")
 
 
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True) # helps to test webpage
+        debug=True)
