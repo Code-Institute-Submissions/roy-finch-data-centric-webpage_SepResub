@@ -17,6 +17,7 @@
 
         section {
             margin: 20px;
+            margin-top: 20px;
             border: 1px solid black;
             padding: 20px 40px 20px 40px;
             box-shadow: 10px 10px 10px grey;
@@ -219,7 +220,8 @@
         </section> -->
 
         <footer>
-            <a class="a-none" href=" {{ url_for('login') }} ">Create an account</a>
+            {% block account %}
+            {% endblock %}
             <!-- <image class="icon m-r" href="#" src="/static/img/chat.png"></image>
             <image class="icon" href="#" src="/static/img/book.png"></image>
             <image class="icon" href="#" src="/static/img/profile.png"></image> -->
