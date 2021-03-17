@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+    <header>
+        <h3 id="title">
+            <span class="retro">{{ game.name }}</span>
+        </h3>
+        <hr>
+        <p>{{ game.details }}</p>
+    </header>
+    <details class="red">
+        <summary>Initial Opinion</summary>
+        <p>{{ game.initial }}</p>
+    </details>
+{% endblock %}

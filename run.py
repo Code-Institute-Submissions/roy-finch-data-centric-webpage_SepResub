@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -22,32 +23,26 @@ def search():
 
 @app.route("/result")
 def result(query):
-    game_list = open("game-list.txt", "r").read().lower().split("\n")
-    game_list.sort()
+    file = []
     results = []
-    response = ""
-    is_red = True
-    for i in range(0, len(game_list)):
-        if query.lower() in game_list[i]:
-            results.append(game_list[i])
-
-    if len(results) == 0:
-        response = response+"<div class='result-div'><p>What you have entered is unable to find any matching website</p></div>"
-    else:
-        response = response+"<span>You have "+str(len(results))+" results.</span>"    
-    for i in range(0, len(results)):
-        if is_red:
-            response = response+"<div class='result-div'><a class='red' href='"+str(results[i].lower().replace(" ", "_"))+"' >"+results[i].title()+"</a></div>"
-            is_red = False
-        else:
-            response = response+"<div class='result-div'><a class='blue' href='"+str(results[i].lower().replace(" ", "_"))+"' >"+results[i].title()+"</a></div>"
-            is_red = True
-    return render_template("result.html", insert=response)
+    with open("data/game-log.json", "r") as games_data:
+        file = json.load(games_data)
+        for i in range(len(file)):
+            if query.lower() in file[i]["name"].lower():
+                results.append(file[i])
+        num = len(results)
+    return render_template("result.html", results=results, num_search=num)
 
 
-@app.route("/the_legend_of_zelda_ocarina_of_time")
-def process():
-    return render_template("the_legend_of_zelda_ocarina_of_time.html")
+@app.route("/<game_name>")
+def page_load(game_name):
+    file = []
+    with open("data/game-log.json", "r") as games_data:
+        file = json.load(games_data)
+        for obj in file:
+            if obj["link"] == game_name:
+                game = obj
+    return render_template("page_template.html", game=game)
 
 
 if __name__ == "__main__":

@@ -2,10 +2,22 @@
 {% extends "base.html" %}
 {% block content %}
     <header>
-        <h3 id="title"><span class="retro">Retro</span>
-        <span class="review">Results</span></h3><hr>
+        <h3 id="title">
+            <span class="retro">Retro</span>
+            <span class="review">Results</span>
+        </h3>
+        <hr>
+        <p>There are {{ num_search }} results.</p>
     </header>
 
-    {{ insert|safe }}
+    {% for game in results %}
+        <div>
+            {% if loop.index % 2 != 0 %}
+                <a class="a-none red" href="{{ game.link }}">{{game.name}}</a><span> - {{game.details}}</span>
+            {% else %}
+                <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a><span> - {{game.details}}</span>
+            {% endif %}
+        </div>
+    {% endfor %}
     
 {% endblock %}

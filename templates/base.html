@@ -32,6 +32,8 @@
             margin-bottom: -60px;
             padding: 5px;
             height: 5vh;
+            border-top: 1px solid black;
+            background-color: white;
         }
 
         nav {
@@ -197,11 +199,13 @@
         <nav>
             <a class="a-none" href="{{ url_for('index') }}">
                 <image class="logo" src="/static/img/RR.png"></image>
-                <b><span class="retro">Retro</span> <span class="review">Reviews</span></b>
+                <b>
+                    <span class="retro">Retro</span> <span class="review">Reviews</span>
+                </b>
             </a>
             <form id="search-bar" class="m-r" action="{{ url_for('search') }}" method="POST">
                 <input type="search" name="Search" autocomplete="off">
-                <button type="submit" ><image id="search-icon" src="/static/search-transparent.png"></image></button>
+                <button type="submit" ><image id="search-icon" src="/static/img/search-transparent.png"></image></button>
             </form>
         </nav>
 
@@ -220,8 +224,7 @@
         </section> -->
 
         <footer>
-            {% block account %}
-            {% endblock %}
+            <a href="{{ url_for('login') }}">Account</a>
             <!-- <image class="icon m-r" href="#" src="/static/img/chat.png"></image>
             <image class="icon" href="#" src="/static/img/book.png"></image>
             <image class="icon" href="#" src="/static/img/profile.png"></image> -->
