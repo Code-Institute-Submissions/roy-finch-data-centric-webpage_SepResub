@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
+<section>
     <header>
         <h3 id="title">
             <span class="retro">Retro</span>
             <span class="review">Results</span>
         </h3>
         <hr>
-        <p>There are {{ num_search }} results.</p>
+        <p>There are {{ num_search }} results with the search entry "{{ query }}"</p>
     </header>
 
     {% for game in results %}
@@ -19,5 +20,7 @@
             {% endif %}
         </div>
     {% endfor %}
-    
+
+    <!-- <p>Is there a game entry for your search? If not press the following link to ask for a future page on the game.</p> -->
+</section>
 {% endblock %}

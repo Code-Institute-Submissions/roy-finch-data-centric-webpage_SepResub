@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<section>
+    <header>
+        <h3 id="title">
+            <span class="retro">Retro</span>
+            <span class="review">Reviewer</span>
+        </h3>
+        <hr>
+        <p>There are {{ num_search }} results with the search entry "{{ query }}", using the form below you are able to enter the games name and a quick description for a future page on the game.</p>
+    </header>
+    <h4 class="blue" >What game where you looking for?</h4>
+    <br>
+    <hr>
+    <form>
+        <input class="query" type="text" placeholder="Enter a title" name="Title" autocomplete="off" required>
+        <br>
+        <button type="submit" >Submit Query</button>
+    </form>
+</section>
+{% endblock %}

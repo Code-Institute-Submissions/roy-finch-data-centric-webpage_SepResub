@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
+<section>
     <header>
         <h3 id="title">
             <span class="retro">Retro</span>
@@ -13,28 +14,29 @@
         <span class="retro">Login</span>
     </h3>
     <form method="POST">
-        <label class="blue" for="username">Email: </label>
+        <label class="red" for="Email">Email: </label>
         <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
         <br>
-        <label for="password">Password: </label>
+        <label class="blue" for="Password">Password: </label>
         <input type="password" placeholder="Enter a password" name="Password" autocomplete="off" required>
         <br>
-        <button type="submit" >Create Account</button>
+        <button type="submit" >Login</button>
     </form>
 
     <h3>
         <span class="review">Sign Up</span>
     </h3>
     <form method="POST">
-        <label class="red" for="username">Username: </label>
+        <label class="red" for="Username">Username: </label>
         <input type="text" placeholder="Enter a username" name="Username" autocomplete="off" required>
         <br>
-        <label class="blue" for="username">Email: </label>
+        <label class="blue" for="Email">Email: </label>
         <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
         <br>
-        <label for="password">Password: </label>
+        <label for="Password">Password: </label>
         <input type="password" placeholder="Enter a password" name="Password" autocomplete="off" required>
         <br>
         <button type="submit" >Create Account</button>
     </form>
+</section>
 {% endblock %}

@@ -53,6 +53,10 @@
             margin-top: -20px;
         }
 
+        h4 {
+            text-align: center;
+        }
+
         details > p {
             color: black;
             text-indent: 20px;
@@ -92,7 +96,7 @@
             width: 50vw;
             margin-top: 4px;
         }
-
+        
         section input[type=password] {
             margin-left: 20px;
             border: none;
@@ -209,19 +213,8 @@
             </form>
         </nav>
 
-        <section>
-            
-            {% block content %}
-            {% endblock %}
-
-        </section>
-
-        <!-- <section>
-            
-            {% block comments %}
-            {% endblock %}
-
-        </section> -->
+        {% block content %}
+        {% endblock %}
 
         <footer>
             <a href="{{ url_for('login') }}">Account</a>

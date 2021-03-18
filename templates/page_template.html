@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
+<section>
     <header>
         <h3 id="title">
             <span class="retro">{{ game.name }}</span>
@@ -8,8 +9,50 @@
         <hr>
         <p>{{ game.details }}</p>
     </header>
-    <details class="red">
-        <summary>Initial Opinion</summary>
-        <p>{{ game.initial }}</p>
-    </details>
+</section>
+<section>
+    <header>
+        <h4 class="blue">Guides</h4>
+        <hr>
+    </header>
+    {% for comments in game.guide_comments %}
+        <div>
+            <p>{{ comments }}</p>
+        </div>
+    {% endfor %}
+
+</section>
+<section>
+    <header>
+        <h4 class="blue">Trivia</h4>
+        <hr>
+    </header>
+    {% for comments in game.facts_comments %}
+        <div>
+            <p>{{ comments }}</p>
+        </div>
+    {% endfor %}
+</section>
+<section>
+    <header>
+        <h4 class="blue">Glitches</h4>
+        <hr>
+    </header>
+    {% for comments in game.glitches_comments %}
+        <div>
+            <p>{{ comments }}</p>
+        </div>
+    {% endfor %}
+</section>
+<section>
+    <header>
+        <h4 class="blue">General</h4>
+        <hr>
+    </header>
+    {% for comments in game.comments %}
+        <div>
+            <p>{{ comments }}</p>
+        </div>
+    {% endfor %}
+</section>
 {% endblock %}

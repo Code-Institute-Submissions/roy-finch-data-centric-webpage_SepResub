@@ -31,7 +31,10 @@ def result(query):
             if query.lower() in file[i]["name"].lower():
                 results.append(file[i])
         num = len(results)
-    return render_template("result.html", results=results, num_search=num)
+        if num == 0:
+            return render_template("page_inquiry.html", query=query)
+        return render_template(
+            "result.html", results=results, num_search=num, query=query)
 
 
 @app.route("/<game_name>")
@@ -49,4 +52,5 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
-        debug=True)
+        debug=True
+        )
