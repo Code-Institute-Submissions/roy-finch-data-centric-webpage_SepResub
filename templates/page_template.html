@@ -16,9 +16,16 @@
         <hr>
     </header>
     {% for comments in game.guide_comments %}
-        <div>
-            <p>{{ comments }}</p>
-        </div>
+        {% if game.guide_commenters[loop.index-1] != game.guide_commenters[loop.index] %}
+            <div class="comment">
+                <p>{{ comments }}</p>
+                <span class="author"> by {{ game.guide_commenters[loop.index-1] }}</span>
+            </div>
+        {% else %}
+            <div>
+                <p>{{ comments }}</p>
+            </div>
+        {% endif %}
     {% endfor %}
 
 </section>
@@ -27,9 +34,12 @@
         <h4 class="blue">Trivia</h4>
         <hr>
     </header>
-    {% for comments in game.facts_comments %}
-        <div>
+    {% for comments in game.fact_comments %}
+        <div class="comment">
             <p>{{ comments }}</p>
+            {% if game.fact_commenters[loop.index-1] != game.fact_commenters[loop.index] %}
+                <span class="author"> by {{ game.fact_commenters[loop.index-1] }}</span>
+            {% endif %}
         </div>
     {% endfor %}
 </section>
@@ -38,9 +48,12 @@
         <h4 class="blue">Glitches</h4>
         <hr>
     </header>
-    {% for comments in game.glitches_comments %}
-        <div>
+    {% for comments in game.glitch_comments %}
+        <div class="comment">
             <p>{{ comments }}</p>
+            {% if game.glitch_commenters[loop.index-1] != game.glitch_commenters[loop.index] %}
+                <span class="author"> by {{ game.glitch_commenters[loop.index-1] }}</span>
+            {% endif %}
         </div>
     {% endfor %}
 </section>
@@ -50,8 +63,11 @@
         <hr>
     </header>
     {% for comments in game.comments %}
-        <div>
+        <div class="comment">
             <p>{{ comments }}</p>
+            {% if game.commenters[loop.index-1] != game.commenters[loop.index] %}
+                <span class="author"> by {{ game.commenters[loop.index-1] }}</span>
+            {% endif %}
         </div>
     {% endfor %}
 </section>
