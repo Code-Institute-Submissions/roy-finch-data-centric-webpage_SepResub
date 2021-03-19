@@ -21,7 +21,6 @@ def search():
     return result(text)
 
 
-@app.route("/result")
 def result(query):
     file = []
     results = []
