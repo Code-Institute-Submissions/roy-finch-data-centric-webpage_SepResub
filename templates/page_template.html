@@ -8,6 +8,7 @@
         </h3>
         <hr>
         <p>{{ game.details }}</p>
+        <!-- <p>You can search for something in particular using a keyword within the following search bar.</p> -->
     </header>
 </section>
 <section>
@@ -15,35 +16,38 @@
         <h4 class="blue">Guides</h4>
         <hr>
     </header>
-    {% for comments in game.guide_comments %}
-        {% if game.guide_commenters[loop.index-1] != game.guide_commenters[loop.index] %}
-            <div class="comment bottom">
-                <span>{{ comments }}</span>
-                <span class="author"> by {{ game.guide_commenters[loop.index-1] }}</span>
-            </div>
-        {% else %}
-            <div class="comment">
-                <span>{{ comments }}</span>
-            </div>
+    {% for tag in game.comment_tag %}
+        {% if tag == "guide" %}
+            {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                <div class="comment">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                </div>
+            {% else %}
+                <div class="comment bottom">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                    <span class="author"> by {{ game.author[loop.index-1] }}</span>
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
-
 </section>
 <section>
     <header>
         <h4 class="blue">Trivia</h4>
         <hr>
     </header>
-    {% for comments in game.fact_comments %}
-        {% if game.fact_commenters[loop.index-1] != game.fact_commenters[loop.index] %}
-            <div class="comment bottom">
-                <span>{{ comments }}</span>
-                <span class="author"> by {{ game.fact_commenters[loop.index-1] }}</span>
-            </div>
-        {% else %}
-            <div class="comment">
-                <span>{{ comments }}</span>
-            </div>
+    {% for tag in game.comment_tag %}
+        {% if tag == "trivia" %}
+            {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                <div class="comment">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                </div>
+            {% else %}
+                <div class="comment bottom">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                    <span class="author"> by {{ game.author[loop.index-1] }}</span>
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 </section>
@@ -52,16 +56,18 @@
         <h4 class="blue">Glitches</h4>
         <hr>
     </header>
-    {% for comments in game.glitch_comments %}
-        {% if game.glitch_commenters[loop.index-1] != game.glitch_commenters[loop.index] %}
-            <div class="comment bottom">
-                <span>{{ comments }}</span>
-                <span class="author"> by {{ game.glitch_commenters[loop.index-1] }}</span>
-            </div>
-        {% else %}
-            <div class="comment">
-                <span>{{ comments }}</span>
-            </div>
+    {% for tag in game.comment_tag %}
+        {% if tag == "glitch" %}
+            {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                <div class="comment">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                </div>
+            {% else %}
+                <div class="comment bottom">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                    <span class="author"> by {{ game.author[loop.index-1] }}</span>
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 </section>
@@ -70,16 +76,18 @@
         <h4 class="blue">General</h4>
         <hr>
     </header>
-    {% for comments in game.comments %}
-        {% if game.commenters[loop.index-1] != game.commenters[loop.index] %}
-            <div class="comment bottom">
-                <span>{{ comments }}</span>
-                <span class="author"> by {{ game.commenters[loop.index-1] }}</span>
-            </div>
-        {% else %}
-            <div class="comment">
-                <span>{{ comments }}</span>
-            </div>
+    {% for tag in game.comment_tag %}
+        {% if tag == "general" %}
+            {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                <div class="comment">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                </div>
+            {% else %}
+                <div class="comment bottom">
+                    <span>{{ game.comment[loop.index-1] }}</span>
+                    <span class="author"> by {{ game.author[loop.index-1] }}</span>
+                </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 </section>
