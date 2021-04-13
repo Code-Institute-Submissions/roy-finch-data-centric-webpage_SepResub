@@ -44,7 +44,9 @@ def page_load(game_name):
         for obj in file:
             if obj["link"] == game_name:
                 game = obj
-    return render_template("page_template.html", game=game)
+                red = obj["name"][0:round(len(obj["name"])/2)]
+                blue = obj["name"][round(len(obj["name"])/2):len(obj["name"])]
+    return render_template("page_template.html", game=game, red=red, blue=blue)
 
 
 if __name__ == "__main__":
