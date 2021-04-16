@@ -3,9 +3,7 @@
 {% block content %}
 <section>
     <header>
-        <h3 id="title">
-            <span class="retro">{{ red }}</span><span class="review">{{ blue }}</span>
-        </h3>
+        <h3 id="title"><span class="red">{{ red }}</span><span class="blue">{{ blue }}</span></h3>
         <hr>
         <p>{{ game.details }}</p>
         <!-- <p>You can search for something in particular using a keyword within the following search bar.</p> -->
@@ -14,20 +12,21 @@
 {% if "guide" in game.comment_tag %}
     <section>
         <header>
-            <h4 class="blue">Guides</h4>
+            <h4 class="red">Guides</h4>
             <hr>
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "guide" %}
+                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] %}
+                    <details class="comment">
+                        <summary>{{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span></summary>
+                {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
-                    <div class="comment">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                    </div>
+                    <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    <br>
                 {% else %}
-                    <div class="comment bottom">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                        <span class="author"> by {{ game.author[loop.index-1] }}</span>
-                    </div>
+                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -41,15 +40,16 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "trivia" %}
+                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or (not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index])%}
+                    <details class="comment bottom">
+                        <summary>{{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span></summary>
+                {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
-                    <div class="comment">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                    </div>
+                    <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    <br>
                 {% else %}
-                    <div class="comment bottom">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                        <span class="author"> by {{ game.author[loop.index-1] }}</span>
-                    </div>
+                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -58,20 +58,21 @@
 {% if "glitch" in game.comment_tag %}
     <section>
         <header>
-            <h4 class="blue">Glitches</h4>
+            <h4 class="red">Glitches</h4>
             <hr>
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "glitch" %}
+                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] %}
+                    <details class="comment bottom">
+                        <summary>{{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span></summary>
+                {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
-                    <div class="comment">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                    </div>
+                    <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    <br>
                 {% else %}
-                    <div class="comment bottom">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                        <span class="author"> by {{ game.author[loop.index-1] }}</span>
-                    </div>
+                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
@@ -85,15 +86,16 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "general" %}
+                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] %}
+                    <details class="comment bottom">
+                        <summary>{{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span></summary>
+                {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
-                    <div class="comment">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                    </div>
+                    <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    <br>
                 {% else %}
-                    <div class="comment bottom">
-                        <span>{{ game.comment[loop.index-1] }}</span>
-                        <span class="author"> by {{ game.author[loop.index-1] }}</span>
-                    </div>
+                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                    </details>
                 {% endif %}
             {% endif %}
         {% endfor %}

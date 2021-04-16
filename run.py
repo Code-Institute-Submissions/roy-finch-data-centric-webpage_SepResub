@@ -44,8 +44,13 @@ def page_load(game_name):
         for obj in file:
             if obj["link"] == game_name:
                 game = obj
-                red = obj["name"][0:round(len(obj["name"])/2)]
-                blue = obj["name"][round(len(obj["name"])/2):len(obj["name"])]
+                if obj["series"] not in obj["name"]:
+                    red = obj["name"][0:round(len(obj["name"])/2)]
+                    blue = obj["name"][round(len(
+                        obj["name"])/2):len(obj["name"])]
+                else:
+                    red = obj["series"]
+                    blue = obj["name"][len(obj["series"]):len(obj["name"])]
     return render_template("page_template.html", game=game, red=red, blue=blue)
 
 
@@ -53,5 +58,4 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"), 
         port=int(os.environ.get("PORT", "5000")), 
-        debug=True
-        )
+        debug=True)
