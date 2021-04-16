@@ -13,9 +13,11 @@
 
     {% for game in results %}
         <div class="indent">
-            <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a>
-            <p>{{game.details}}</p>
+            <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a><span class="right">{{ game.num_comments }} Comments</span>
+            <br>
+            <span>{{game.details}}</span>
         </div>
+        <br>
     {% endfor %}
 
     <!-- <br> -->

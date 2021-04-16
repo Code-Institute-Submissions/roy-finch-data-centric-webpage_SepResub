@@ -24,7 +24,7 @@
                     <details class="comment bottom">
                         <summary>
                             {{ game.comment_title[loop.index-1] }}
-                            <span class="author">by {{ game.author[loop.index-1] }}</span>
+                            <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
@@ -49,7 +49,8 @@
                 {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span>
+                            {{ game.comment_title[loop.index-1] }}
+                            <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
@@ -74,7 +75,8 @@
                 {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span>
+                            {{ game.comment_title[loop.index-1] }}
+                            <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
@@ -99,7 +101,8 @@
                 {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ game.comment_title[loop.index-1] }}<span class="author">by {{ game.author[loop.index-1] }}</span>
+                            {{ game.comment_title[loop.index-1] }}
+                            <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
