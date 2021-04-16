@@ -12,14 +12,14 @@
     </header>
 
     {% for game in results %}
-        <div>
-            {% if loop.index % 2 != 0 %}
-                <a class="a-none red" href="{{ game.link }}">{{game.name}}</a><span> - {{game.details}}</span>
-            {% else %}
-                <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a><span> - {{game.details}}</span>
-            {% endif %}
+        <div class="indent">
+            <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a>
+            <p>{{game.details}}</p>
         </div>
     {% endfor %}
+
+    <!-- <br> -->
+    <!-- <a href="{{ url_for('inquire') }}">Did you find the game you where looking for? If not use this link.</a> -->
 
     <!-- <p>Is there a game entry for your search? If not press the following link to ask for a future page on the game.</p> -->
 </section>

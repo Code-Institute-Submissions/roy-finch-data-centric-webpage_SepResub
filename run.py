@@ -15,6 +15,11 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/inquire")
+def inquire():
+    return render_template("page_inquiry.html")
+
+
 @app.route("/search", methods=["POST"])
 def search():
     text = request.form.get("Search")
@@ -31,7 +36,7 @@ def result(query):
                 results.append(file[i])
         num = len(results)
         if num == 0:
-            return render_template("page_inquiry.html", query=query)
+            return inquire()
         return render_template(
             "result.html", results=results, num_search=num, query=query)
 
