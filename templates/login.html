@@ -3,7 +3,7 @@
 {% block content %}
 <section>
     <header>
-        <h3 id="title">
+        <h3 class="center" id="title">
             <span class="retro">Retro</span>
             <span class="review">Reviewer</span>
         </h3>
@@ -11,32 +11,17 @@
         <p>On this webpage you have the posibility to either create an account if you dont currently have one or login to an existing account below.</p>
     </header>
     <h3>
-        <span class="retro">Login</span>
+        <span class="retro"></span>
     </h3>
-    <form>
-        <label class="red" for="Email">Email: </label>
+    <form action>
+        <label for="Email">Email: </label>
         <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
         <br>
-        <label class="blue" for="Password">Password: </label>
-        <input type="password" placeholder="Enter a password" name="Password" autocomplete="off" required>
-        <br>
-        <button type="submit" >Login</button>
-    </form>
-
-    <h3>
-        <span class="review">Sign Up</span>
-    </h3>
-    <form>
-        <label class="red" for="Username">Username: </label>
-        <input type="text" placeholder="Enter a username" name="Username" autocomplete="off" required>
-        <br>
-        <label class="blue" for="Email">Email: </label>
+        <label for="Email">Username: </label>
         <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
         <br>
-        <label for="Password">Password: </label>
-        <input type="password" placeholder="Enter a password" name="Password" autocomplete="off" required>
-        <br>
-        <button type="submit" >Create Account</button>
+        <button class="large-font red login-button" type="submit">Login</button>
+        <button class="large-font blue login-button" type="submit">Signup</button>
     </form>
 </section>
 {% endblock %}

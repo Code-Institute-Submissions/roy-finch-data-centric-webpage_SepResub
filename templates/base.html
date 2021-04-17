@@ -12,7 +12,7 @@
             overflow-x: hidden;
             font-family:'Consolas', Calabiri, Arial;
             user-select: none;
-            min-width: 600px;
+            min-width: 650px;
         }
 
         section {
@@ -71,7 +71,7 @@
             border-radius: 10px;
             display: inline;
             vertical-align: top;
-            margin-top: 0px;
+            margin-top: 3px;
             text-indent: 10px;
         }
 
@@ -79,7 +79,7 @@
             border: none;
             vertical-align: top;
             background-color: white;
-            margin-top: 1px;
+            margin-top: 4px;
             margin-left: -30px;
             z-index: 4;
         }
@@ -121,6 +121,23 @@
             margin: 5px;
             padding: 10px;
             width: 100%;
+        }
+
+        .login-button {
+            background-color: white;
+            border: none;
+            border-bottom: 1px solid black;
+            margin: 5px auto;
+            padding: 10px;
+            width: 48%;
+        }
+
+        .large-font {
+            font-size: large;
+        }
+
+        .center {
+            text-align: center;
         }
 
         .comment {
@@ -191,6 +208,11 @@
             margin-bottom: 4px;
         }
 
+        .login-link {
+            padding: 40vw;
+            text-align: center;
+        }
+
         .a-none {
             text-decoration: none;
         }
@@ -235,18 +257,21 @@
             </a>
             <form id="search-bar" class="m-r" action="{{ url_for('search') }}" method="POST">
                 <input type="search" name="Search" autocomplete="off">
-                <button type="submit" ><image id="search-icon" src="/static/img/search-transparent.png"></image></button>
-            </form>
+                <button type="submit" >
+                    <image id="search-icon" src="/static/img/search-transparent.png"></image>
+                </button>
+            </form>      
         </nav>
 
         {% block content %}
         {% endblock %}
 
         <footer>
-            <a href="{{ url_for('login') }}">Account</a>
-            <!-- <image class="icon m-r" href="#" src="/static/img/chat.png"></image>
-            <image class="icon" href="#" src="/static/img/book.png"></image>
-            <image class="icon" href="#" src="/static/img/profile.png"></image> -->
+            <a class="a-none login-link" href="{{ url_for('login') }}">
+                <span class="red">Login</span>
+                <span> & </span>
+                <span class="blue">Signup</span>
+            </a>
         </footer>
     </main>
 </body>
