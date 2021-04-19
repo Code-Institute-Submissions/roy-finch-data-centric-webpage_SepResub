@@ -209,7 +209,7 @@
         }
 
         .login-link {
-            padding: 40vw;
+            padding: auto;
             text-align: center;
         }
 
@@ -267,11 +267,20 @@
         {% endblock %}
 
         <footer>
-            <a class="a-none login-link" href="{{ url_for('login') }}">
-                <span class="red">Login</span>
-                <span> & </span>
-                <span class="blue">Signup</span>
-            </a>
+            {% if user == "" %}
+                <a class="a-none login-link" href="{{ url_for('login') }}">
+                    <span class="red">Login</span>
+                    <span> & </span>
+                    <span class="blue">Signup</span>
+                </a>
+            {% endif %}
+            {% if user != "" %}
+                <a class="a-none login-link" href="{{ url_for('login') }}">
+                    <span class="red">Account</span>
+                    <span> & </span>
+                    <span class="blue">Signout</span>
+                </a>
+            {% endif %}
         </footer>
     </main>
 </body>

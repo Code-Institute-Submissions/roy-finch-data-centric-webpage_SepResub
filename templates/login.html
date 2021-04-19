@@ -13,15 +13,19 @@
     <h3>
         <span class="retro"></span>
     </h3>
-    <form action>
+    <p class="retro">{{ error_message }}</p>
+    <form class="center" action=" {{ url_for('signin') }} " method="POST">
         <label for="Email">Email: </label>
-        <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
+        <input type="text" placeholder="Enter an/the email" name="Email" autocomplete="off" required>
         <br>
-        <label for="Email">Username: </label>
-        <input type="text" placeholder="Enter an email" name="Email" autocomplete="off" required>
+        <label for="Username">Username: </label>
+        <input type="text" placeholder="Enter an/the username" name="Username" autocomplete="off" required>
         <br>
-        <button class="large-font red login-button" type="submit">Login</button>
-        <button class="large-font blue login-button" type="submit">Signup</button>
+        <label for="Passw">Password: </label>
+        <input type="password" placeholder="Enter an/the password" name="Passw" autocomplete="off" required>
+        <br>
+        <button class="large-font red login-button" name="Submit" type="submit" value="login">Login</button>
+        <button class="large-font blue login-button" name="Submit" type="submit" value="singup">Signup</button>
     </form>
 </section>
 {% endblock %}
