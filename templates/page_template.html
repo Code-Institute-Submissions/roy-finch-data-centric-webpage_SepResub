@@ -10,6 +10,28 @@
         <hr>
         <p>This game is part of the {{ game.series }} series and was on the {{ game.console }}. {{ game.details }}</p>
         <!-- <p>You can search for something in particular using a keyword within the following search bar.</p> -->
+        {% if user != "" %}
+            <details>
+                <summary>Add a comment</summary>
+                <form method="POST" action="{{ url_for('add_comment') }}" class="center">
+                    <input type="text" maxlength="50" placeholder="Enter a title" name="Title" autocomplete="off" required>
+                    <br>
+                    <br>
+                    <label for="Radio1">Guide</label>
+                    <input type="radio" name="Radio" value="guide">
+                    <label for="Radio2">Trivia</label>
+                    <input type="radio" name="Radio" value="trivia">
+                    <label for="Radio3">Glitches</label>
+                    <input type="radio" name="Radio" value="glitch">
+                    <label for="Radio4">General</label>
+                    <input type="radio" name="Radio" value="general">
+                    <br>
+                    <br>
+                    <textarea rows="12" maxlength="425" type="text" placeholder="Enter a description of the game" name="Details" autocomplete="off" required></textarea>
+                    <button type="submit" >Submit Query</button>
+                </form>
+            </details>
+        {% endif %}
     </header>
 </section>
 {% if "guide" in game.comment_tag %}

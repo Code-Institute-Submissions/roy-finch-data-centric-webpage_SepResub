@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+{% extends "alt_base.html" %}
 {% block content %}
 <section>
     <header>
         <h3 class="center" id="title">
-            <span class="retro">Retro</span>
-            <span class="review">Reviews</span>
+            <span class="retro">Hello </span>
+            <span class="review">{{ user.username}}</span>
         </h3>
         <hr>
-        <p>Welcome to your account homepage {{ user.username }}</p>
+        <p>This is your account page where you can view comments that you have made on previous threads.</p>
     </header>
 </section>
 {% endblock %}

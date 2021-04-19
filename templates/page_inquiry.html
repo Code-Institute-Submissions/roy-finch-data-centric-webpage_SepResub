@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+{% extends "alt_base.html" %}
 {% block content %}
 <section>
     <header>
@@ -13,12 +13,12 @@
     <h4 class="blue" >What game where you looking for?</h4>
     <br>
     <hr>
-    <form>
-        <label for="Title">Game Name: </label>
-        <input type="text" placeholder="Enter a title" name="Title" autocomplete="off" required>
+    <form class="center">
+        <input type="text" maxlength="50" placeholder="Enter a title" name="Title" autocomplete="off" required>
         <br>
-        <label for="Console">Description: </label>
-        <input type="text" placeholder="Enter a console" name="Console" autocomplete="off" required>
+        <input type="text" maxlength="36" placeholder="Enter a console" name="Console" autocomplete="off" required>
+        <br>
+        <textarea rows="8" maxlength="350" type="text" placeholder="Enter a description of the game" name="Details" autocomplete="off" required></textarea>
         <button type="submit" >Submit Query</button>
     </form>
 </section>

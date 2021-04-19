@@ -96,6 +96,17 @@
             width: 65%;
             margin-top: 4px;
         }
+
+        textarea {
+            margin-left: 20px;
+            border: none;
+            border-bottom: 1px solid black;
+            padding: 10px;
+            resize: none;
+            width: 65%;
+            word-wrap: break-word;
+            margin-top: 4px;
+        }
         
         section input[type=password] {
             margin-left: 20px;
@@ -209,7 +220,12 @@
         }
 
         .login-link {
-            padding: auto;
+            padding: 40%;
+            text-align: center;
+        }
+
+        .singout-link {
+            padding: 45.5%;
             text-align: center;
         }
 
@@ -274,11 +290,7 @@
                     <span class="blue">Signup</span>
                 </a>
             {% else %}
-                <a class="a-none login-link" href="{{ url_for('login') }}">
-                    <span class="red">Account</span>
-                    <span> & </span>
-                    <span class="blue">Signout</span>
-                </a>
+                <a class="a-none red singout-link" href="{{ url_for('signout') }}">Signout</a>
             {% endif %}
         </footer>
     </main>

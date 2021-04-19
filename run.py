@@ -12,13 +12,30 @@ def index():
     return render_template("index.html", user=user_id)
 
 
+@app.route("/signout")
+def signout():
+    global user_id
+    user_id = ""
+    return login()
+
+
+@app.route("/<game_name>/comment", methods=["POST"])
+def add_comment(game_name):
+    if user_id != "":
+        title = request.form.get("Title")
+        tag = request.form.get("Radio")
+        detail = request.form.get("Details")
+        user = user_id["username"]
+        return game_name+" "+title+" "+tag+" "+detail+" "+user
+
+
 @app.route("/login")
 def login():
     if user_id == "":
         return render_template(
             "login.html", user=user_id, error_message=error_msg)
     else:
-        return account()
+        return index()
 
 
 @app.route("/account")
