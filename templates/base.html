@@ -273,8 +273,7 @@
                     <span> & </span>
                     <span class="blue">Signup</span>
                 </a>
-            {% endif %}
-            {% if user != "" %}
+            {% else %}
                 <a class="a-none login-link" href="{{ url_for('login') }}">
                     <span class="red">Account</span>
                     <span> & </span>

@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 user_id = ""
-error_msg = ""
+error_msg = False
 
 
 @app.route("/")
@@ -18,7 +18,12 @@ def login():
         return render_template(
             "login.html", user=user_id, error_message=error_msg)
     else:
-        return index()
+        return account()
+
+
+@app.route("/account")
+def account():
+    return render_template("account.html", user=user_id)
 
 
 @app.route("/singin", methods=["POST"])
@@ -32,8 +37,6 @@ def signin():
         user_auth = False
     elif action == "signup":
         user_auth = True
-    global error_msg
-    error_msg = ""
     if not testFile("data/users.json"):
         return error()
     with open("data/users.json", "r") as users:
@@ -44,17 +47,14 @@ def signin():
                     if passw == file[i]["passw"]:
                         if email == file[i]["email"]:
                             user_auth = True
+                            global user_id
+                            user_id = file[i]
             elif action == "signup":
                 if usern != file[i]["username"]:
                     user_auth = False
-                    error_msg = "Username is taken"
                 if email != file[i]["email"]:
                     user_auth = False
-                    error_msg = "Email is in use"
-
         if user_auth is True:
-            global user_id
-            user_id = usern
             return index()
         else:
             return login()
@@ -107,7 +107,8 @@ def page_load(game_name):
                 else:
                     red = obj["series"]
                     blue = obj["name"][len(obj["series"]):len(obj["name"])]
-    return render_template("page_template.html", game=game, red=red, blue=blue, user=user_id)
+    return render_template(
+        "page_template.html", game=game, red=red, blue=blue, user=user_id)
 
 
 def testFile(file):
@@ -120,6 +121,6 @@ def testFile(file):
 
 if __name__ == "__main__":
     app.run(
-        host=os.environ.get("IP", "0.0.0.0"), 
-        port=int(os.environ.get("PORT", "5000")), 
-        debug=True)
+        host=os.environ.get(
+            "IP", "0.0.0.0"), port=int(
+                os.environ.get("PORT", "5000")), debug=True)

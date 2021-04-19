@@ -13,7 +13,9 @@
     <h3>
         <span class="retro"></span>
     </h3>
-    <p class="retro">{{ error_message }}</p>
+    {% if error_msg == True %}
+        <p class="retro">Sorry but the Email or Username you have entered is currently used by someone else.</p>
+    {% endif %}
     <form class="center" action=" {{ url_for('signin') }} " method="POST">
         <label for="Email">Email: </label>
         <input type="text" placeholder="Enter an/the email" name="Email" autocomplete="off" required>
