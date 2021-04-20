@@ -13,18 +13,18 @@
         {% if user != "" %}
             <details>
                 <summary>Add a comment</summary>
-                <form method="POST" action="{{ url_for('add_comment') }}" class="center">
+                <form method="POST" class="center">
                     <input type="text" maxlength="50" placeholder="Enter a title" name="Title" autocomplete="off" required>
                     <br>
                     <br>
                     <label for="Radio1">Guide</label>
-                    <input type="radio" name="Radio" value="guide">
+                    <input type="radio" name="Radio" value="guide" required>
                     <label for="Radio2">Trivia</label>
-                    <input type="radio" name="Radio" value="trivia">
+                    <input type="radio" name="Radio" value="trivia" required>
                     <label for="Radio3">Glitches</label>
-                    <input type="radio" name="Radio" value="glitch">
+                    <input type="radio" name="Radio" value="glitch" required>
                     <label for="Radio4">General</label>
-                    <input type="radio" name="Radio" value="general">
+                    <input type="radio" name="Radio" value="general" required>
                     <br>
                     <br>
                     <textarea rows="12" maxlength="425" type="text" placeholder="Enter a description of the game" name="Details" autocomplete="off" required></textarea>
@@ -42,18 +42,16 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "guide" %}
-                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
+                {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
                     <details class="comment bottom">
                         <summary>
                             {{ game.comment_title[loop.index-1] }}
                             <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
-                    <span class="content">{{ game.comment[loop.index-1] }}</span>
-                    <br>
-                {% else %}
-                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <br>
+                {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -68,18 +66,18 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "trivia" %}
-                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
+                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
                     <details class="comment bottom">
                         <summary>
                             {{ game.comment_title[loop.index-1] }}
                             <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
                     <span class="content">{{ game.comment[loop.index-1] }}</span>
                     <br>
-                {% else %}
-                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                {% endif %}
+                {% if not game.comment_title[loop.index-1] == game.comment_title[loop.index] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -94,14 +92,14 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "glitch" %}
-                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
+                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
                     <details class="comment bottom">
                         <summary>
                             {{ game.comment_title[loop.index-1] }}
                             <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
                     <span class="content">{{ game.comment[loop.index-1] }}</span>
                     <br>
                 {% else %}
@@ -120,14 +118,14 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "general" %}
-                {% if loop.index-1 == 0 or not game.comment_title[loop.index-2] == game.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
                     <details class="comment bottom">
                         <summary>
                             {{ game.comment_title[loop.index-1] }}
                             <span class="right">by {{ game.author[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] %}
+                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
                     <span class="content">{{ game.comment[loop.index-1] }}</span>
                     <br>
                 {% else %}

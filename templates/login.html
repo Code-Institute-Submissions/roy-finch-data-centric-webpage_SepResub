@@ -10,24 +10,28 @@
         <hr>
         <p>On this webpage you have the posibility to either create an account if you dont currently have one or login to an existing account below.</p>
     </header>
-    <h3>
-        <span class="retro"></span>
-    </h3>
-    {% if error_msg == True %}
-        <p class="retro">Sorry but the Email or Username you have entered is currently used by someone else.</p>
+
+    {% if error_message == 1 %}
+        <p class="red">Sorry but the password you entered is incorrect.</p>
+    {% endif %}   
+    {% if error_message == 2 %}
+        <p class="red">Sorry but the username you entered is incorrect.</p>
     {% endif %}
+    {% if error_message == 3 %}
+        <p class="red">Sorry but the username you entered is already taken. Please change your username.</p>
+    {% endif %}
+
+    <p class="blue">When you are signing up you must keep in mind that you need to use a password with a minimum of 8 characters and also have 1 form of punctuation and 1 numerical value.</p>
+
     <form class="center" action=" {{ url_for('signin') }} " method="POST">
-        <label for="Email">Email: </label>
-        <input type="text" placeholder="Enter an/the email" name="Email" autocomplete="off" required>
-        <br>
         <label for="Username">Username: </label>
         <input type="text" placeholder="Enter an/the username" name="Username" autocomplete="off" required>
         <br>
         <label for="Passw">Password: </label>
-        <input type="password" placeholder="Enter an/the password" name="Passw" autocomplete="off" required>
+        <input id="p_field" type="password" placeholder="Enter an/the password" name="Passw" autocomplete="off" required>
         <br>
         <button class="large-font red login-button" name="Submit" type="submit" value="login">Login</button>
-        <button class="large-font blue login-button" name="Submit" type="submit" value="singup">Signup</button>
+        <button class="large-font blue login-button" name="Submit" type="submit" value="signup">Signup</button>
     </form>
 </section>
 {% endblock %}

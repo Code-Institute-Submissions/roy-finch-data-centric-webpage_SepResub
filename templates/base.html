@@ -12,7 +12,7 @@
             overflow-x: hidden;
             font-family:'Consolas', Calabiri, Arial;
             user-select: none;
-            min-width: 650px;
+            min-width: 680px;
         }
 
         section {
@@ -261,6 +261,16 @@
         }
 
     </style>
+
+    <script>
+        function showPassword()
+            var pass_element = document.getElementById("p-field");
+            if (pass_element.type === "password") {
+                pass_element.type = "text";
+            } else {
+                pass_element.type = "password";
+            }
+    </script>
 </head>
 <body>
     <main>
@@ -290,6 +300,8 @@
                     <span class="blue">Signup</span>
                 </a>
             {% else %}
+                <a class="a-none blue singout-link" href="{{ url_for('account') }}">Account</a>
+                <br>
                 <a class="a-none red singout-link" href="{{ url_for('signout') }}">Signout</a>
             {% endif %}
         </footer>

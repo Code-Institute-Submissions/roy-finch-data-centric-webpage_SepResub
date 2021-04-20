@@ -3,8 +3,12 @@ import json
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-user_id = ""
-error_msg = False
+user_id = {
+    "username": "warr",
+    "passw": "admin12",
+    "email": "test@test.com"
+}
+g_error_msg = 0
 
 
 @app.route("/")
@@ -19,21 +23,11 @@ def signout():
     return login()
 
 
-@app.route("/<game_name>/comment", methods=["POST"])
-def add_comment(game_name):
-    if user_id != "":
-        title = request.form.get("Title")
-        tag = request.form.get("Radio")
-        detail = request.form.get("Details")
-        user = user_id["username"]
-        return game_name+" "+title+" "+tag+" "+detail+" "+user
-
-
 @app.route("/login")
 def login():
     if user_id == "":
         return render_template(
-            "login.html", user=user_id, error_message=error_msg)
+            "login.html", user=user_id, error_message=g_error_msg)
     else:
         return index()
 
@@ -45,8 +39,8 @@ def account():
 
 @app.route("/singin", methods=["POST"])
 def signin():
+    error_msg = 0
     action = request.form.get("Submit")
-    email = request.form.get("Email")
     usern = request.form.get("Username")
     passw = request.form.get("Passw")
     user_auth = False
@@ -62,18 +56,34 @@ def signin():
             if action == "login":
                 if usern == file[i]["username"]:
                     if passw == file[i]["passw"]:
-                        if email == file[i]["email"]:
-                            user_auth = True
-                            global user_id
-                            user_id = file[i]
+                        user_auth = True
+                        global user_id
+                        user_id = file[i]
+                    else:
+                        error_msg = 1
+                else:
+                    error_msg = 2
             elif action == "signup":
-                if usern != file[i]["username"]:
+                if usern == file[i]["username"]:
                     user_auth = False
-                if email != file[i]["email"]:
-                    user_auth = False
-        if user_auth is True:
-            return index()
+                    error_msg = 3
+        if user_auth is True and action == "login":
+            return account()
+        elif user_auth is True and action == "signup":
+            with open("data/users.json", "r") as raw_file:
+                file = json.load(raw_file)
+                user_id = {
+                    "username": usern,
+                    "passw": passw
+                }
+                with open("data/users.json", "w") as users:
+                    file.append(user_id)
+                    json.dump(file, users, indent=3)
+            return account()
         else:
+            global g_error_msg
+            g_error_msg = error_msg
+            error_msg = 0
             return login()
 
 
@@ -109,8 +119,15 @@ def result(query):
             "result.html", results=results, num_search=num, query=query, user=user_id)
 
 
-@app.route("/<game_name>")
+@app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
+    if request.method == "POST":
+        if len(user_id) > 0:
+            title = request.form.get("Title")
+            tag = request.form.get("Radio")
+            detail = request.form.get("Details")
+            commentWrite(
+                game_name, user_id["username"], title, detail, tag)
     file = []
     with open("data/game-log.json", "r") as games_data:
         file = json.load(games_data)
@@ -126,6 +143,30 @@ def page_load(game_name):
                     blue = obj["name"][len(obj["series"]):len(obj["name"])]
     return render_template(
         "page_template.html", game=game, red=red, blue=blue, user=user_id)
+
+
+def commentWrite(game_name, usern, title, comment, tag):
+    with open("data/game-log.json", "r") as games:
+        game_log = json.load(games)
+        for i in range(len(game_log)):
+            if game_name == game_log[i]["link"]:
+                game_log[i]["comment_title"].append(title)
+                game_log[i]["comment_tag"].append(tag)
+                game_log[i]["comment"].append(comment)
+                game_log[i]["author"].append(usern)
+                game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
+        with open("data/game-log.json", "w") as file:
+            json.dump(game_log, file, indent=3)
+    with open("data/user-log.json", "r") as users:
+        user_log = json.load(users)
+        for i in range(len(user_log)):
+            if usern == user_log[i]["username"]:
+                game_log[i]["comment_title"].append(title)
+                game_log[i]["comment_tag"].append(tag)
+                game_log[i]["comment"].append(comment)
+                game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
+        with open("data/user-log.json", "w") as file:
+            json.dump(user_log, file, indent=3)
 
 
 def testFile(file):
