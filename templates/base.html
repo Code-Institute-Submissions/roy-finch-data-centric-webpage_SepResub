@@ -147,13 +147,18 @@
             font-size: large;
         }
 
+        .rr-tag {
+            border-left: 5px solid rgb(63, 72, 204);
+            border-bottom: 1px solid rgb(63, 72, 204);
+        }
+
         .center {
             text-align: center;
         }
 
         .comment {
             padding: 10px;
-            border-bottom: 1px solid black;
+            padding-bottom: 0px;
         }
 
         .indent {
@@ -220,12 +225,12 @@
         }
 
         .login-link {
-            padding: 40%;
+            padding: 0 40% 0 40%;
             text-align: center;
         }
 
         .singout-link {
-            padding: 45.5%;
+            padding:  0 45.5% 0 45.5%;
             text-align: center;
         }
 
@@ -238,7 +243,6 @@
         }
 
         .content {
-            padding-bottom: -20px;
             padding-left: 20px;
         }
 
@@ -302,7 +306,7 @@
             {% else %}
                 <a class="a-none blue singout-link" href="{{ url_for('account') }}">Account</a>
                 <br>
-                <a class="a-none red singout-link" href="{{ url_for('signout') }}">Signout</a>
+                <a class="a-none red signout-link" href="{{ url_for('signout') }}">Signout</a>
             {% endif %}
         </footer>
     </main>

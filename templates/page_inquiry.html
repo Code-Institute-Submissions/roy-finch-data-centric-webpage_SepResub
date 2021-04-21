@@ -13,7 +13,8 @@
     <h4 class="blue" >What game where you looking for?</h4>
     <br>
     <hr>
-    <form class="center">
+    <p class="blue">You can use the following text inputs to tell me the title of the game, the console on which you played it on and also a quick detail about how this game begins. You have a total of 50 max words for the title, 36 for console and 350 for the description.</p>
+    <form method="POST" action="{{ url_for('post') }}" class="center">
         <input type="text" maxlength="50" placeholder="Enter a title" name="Title" autocomplete="off" required>
         <br>
         <input type="text" maxlength="36" placeholder="Enter a console" name="Console" autocomplete="off" required>

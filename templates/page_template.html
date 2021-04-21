@@ -32,6 +32,7 @@
                 </form>
             </details>
         {% endif %}
+        <span class="right">by {{ game.page_creater }}</span>
     </header>
 </section>
 {% if "guide" in game.comment_tag %}
@@ -43,15 +44,24 @@
         {% for tag in game.comment_tag %}
             {% if tag == "guide" %}
                 {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
-                    <details class="comment bottom">
-                        <summary>
-                            {{ game.comment_title[loop.index-1] }}
-                            <span class="right">by {{ game.author[loop.index-1] }}</span>
-                        </summary>
+                    {% if loop.index in game.rr_tag_comment %}
+                        <details class="comment rr-tag">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% else %}
+                        <details class="comment bottom">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% endif %}
                 {% endif %}
                 <span class="content">{{ game.comment[loop.index-1] }}</span>
                 <br>
                 {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
+                <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -66,18 +76,25 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "trivia" %}
-                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
-                    <details class="comment bottom">
-                        <summary>
-                            {{ game.comment_title[loop.index-1] }}
-                            <span class="right">by {{ game.author[loop.index-1] }}</span>
-                        </summary>
+                {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
+                    {% if loop.index in game.rr_tag_comment %}
+                        <details class="comment rr-tag">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% else %}
+                        <details class="comment bottom">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% endif %}
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
-                    <span class="content">{{ game.comment[loop.index-1] }}</span>
-                    <br>
-                {% endif %}
-                {% if not game.comment_title[loop.index-1] == game.comment_title[loop.index] or not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] or not game.author[loop.index-1] == game.author[loop.index] %}
+                <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <br>
+                {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
+                <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -92,18 +109,25 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "glitch" %}
-                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
-                    <details class="comment bottom">
-                        <summary>
-                            {{ game.comment_title[loop.index-1] }}
-                            <span class="right">by {{ game.author[loop.index-1] }}</span>
-                        </summary>
+                {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
+                    {% if loop.index in game.rr_tag_comment %}
+                        <details class="comment rr-tag">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% else %}
+                        <details class="comment bottom">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% endif %}
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
-                    <span class="content">{{ game.comment[loop.index-1] }}</span>
-                    <br>
-                {% else %}
-                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <br>
+                {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
+                <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -118,18 +142,25 @@
         </header>
         {% for tag in game.comment_tag %}
             {% if tag == "general" %}
-                {% if loop.index-1 == 0 or (not game.comment_title[loop.index-1] == game.comment_title[loop.index] and not game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and not game.author[loop.index-1] == game.author[loop.index]) %}
-                    <details class="comment bottom">
-                        <summary>
-                            {{ game.comment_title[loop.index-1] }}
-                            <span class="right">by {{ game.author[loop.index-1] }}</span>
-                        </summary>
+                {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
+                    {% if loop.index in game.rr_tag_comment %}
+                        <details class="comment rr-tag">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% else %}
+                        <details class="comment bottom">
+                            <summary>
+                                {{ game.comment_title[loop.index-1] }}
+                        <span class="right">by {{ game.author[loop.index-1] }}</span>
+                    </summary>
+                    {% endif %}
                 {% endif %}
-                {% if game.comment_tag[loop.index-1] == game.comment_tag[loop.index] and game.author[loop.index-1] == game.author[loop.index] and game.comment_title[loop.index-1] == game.comment_title[loop.index] %}
-                    <span class="content">{{ game.comment[loop.index-1] }}</span>
-                    <br>
-                {% else %}
-                        <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <span class="content">{{ game.comment[loop.index-1] }}</span>
+                <br>
+                {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
+                <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}

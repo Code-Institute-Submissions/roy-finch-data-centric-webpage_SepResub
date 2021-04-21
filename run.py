@@ -5,8 +5,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 user_id = {
     "username": "warr",
-    "passw": "admin12",
-    "email": "test@test.com"
+    "passw": "test",
 }
 g_error_msg = 0
 
@@ -84,12 +83,47 @@ def signin():
             global g_error_msg
             g_error_msg = error_msg
             error_msg = 0
+            passw = ""
             return login()
 
 
 @app.route("/inquire")
 def inquire():
     return render_template("page_inquiry.html", user=user_id)
+
+
+@app.route("/post", methods=["POST"])
+def post():
+    title = request.form.get("Title")
+    console = request.form.get("Console")
+    detail = request.form.get("Details")
+    with open("data/game-log.json", "r") as games:
+        game_log = json.load(games)
+        with open("data/game-log.json", "w") as game_file:
+            new_log = {
+                "name": title,
+                "series": title,
+                "console": console,
+                "details": detail,
+                "link": str(title).lower().replace(" ", "_"),
+                "game_title": [
+
+                ],
+                "comment_title": [
+                ],
+                "comment_tag": [
+                ],
+                "comment": [
+                ],
+                "author": [
+                ],
+                "num_comments": 0,
+                "page_creater": user_id["username"]
+            }
+            game_log.append(new_log)
+            json.dump(game_log, game_file, indent=3)
+            creditor(title, user_id["username"], title, detail, "page")
+            return index()
 
 
 @app.route("/search", methods=["POST"])
@@ -134,13 +168,11 @@ def page_load(game_name):
         for obj in file:
             if obj["link"] == game_name:
                 game = obj
-                if obj["series"] not in obj["name"]:
-                    red = obj["name"][0:round(len(obj["name"])/2)]
-                    blue = obj["name"][round(len(
-                        obj["name"])/2):len(obj["name"])]
-                else:
+                if obj["series"] in obj["name"]:
                     red = obj["series"]
                     blue = obj["name"][len(obj["series"]):len(obj["name"])]
+                else:
+                    red = obj["name"]
     return render_template(
         "page_template.html", game=game, red=red, blue=blue, user=user_id)
 
@@ -157,15 +189,19 @@ def commentWrite(game_name, usern, title, comment, tag):
                 game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
         with open("data/game-log.json", "w") as file:
             json.dump(game_log, file, indent=3)
-    with open("data/user-log.json", "r") as users:
+    creditor(game_name, usern, title, comment, tag)
+
+def creditor(game_name, usern, title, comment, tag):
+    with open("data/users.json", "r") as users:
         user_log = json.load(users)
         for i in range(len(user_log)):
             if usern == user_log[i]["username"]:
-                game_log[i]["comment_title"].append(title)
-                game_log[i]["comment_tag"].append(tag)
-                game_log[i]["comment"].append(comment)
-                game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
-        with open("data/user-log.json", "w") as file:
+                user_log[i]["game_title"].append(game_name)
+                user_log[i]["comment_title"].append(title)
+                user_log[i]["comment_tag"].append(tag)
+                user_log[i]["comment"].append(comment)
+                user_log[i]["num_comments"] = user_log[i]["num_comments"]+1
+        with open("data/users.json", "w") as file:
             json.dump(user_log, file, indent=3)
 
 
