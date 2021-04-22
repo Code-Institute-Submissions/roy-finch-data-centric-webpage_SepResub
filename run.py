@@ -99,31 +99,36 @@ def post():
     detail = request.form.get("Details")
     with open("data/game-log.json", "r") as games:
         game_log = json.load(games)
-        with open("data/game-log.json", "w") as game_file:
-            new_log = {
-                "name": title,
-                "series": title,
-                "console": console,
-                "details": detail,
-                "link": str(title).lower().replace(" ", "_"),
-                "game_title": [
+        add_game = True
+        for i in range(len(game_log)):
+            if title == game_log[i]["name"]:
+                add_game = False
+        if add_game:
+            with open("data/game-log.json", "w") as game_file:
+                new_log = {
+                    "name": title,
+                    "series": title,
+                    "console": console,
+                    "details": detail,
+                    "link": str(title).lower().replace(" ", "_"),
+                    "game_title": [
 
-                ],
-                "comment_title": [
-                ],
-                "comment_tag": [
-                ],
-                "comment": [
-                ],
-                "author": [
-                ],
-                "num_comments": 0,
-                "page_creater": user_id["username"]
-            }
-            game_log.append(new_log)
-            json.dump(game_log, game_file, indent=3)
-            creditor(title, user_id["username"], title, detail, "page")
-            return index()
+                    ],
+                    "comment_title": [
+                    ],
+                    "comment_tag": [
+                    ],
+                    "comment": [
+                    ],
+                    "author": [
+                    ],
+                    "num_comments": 0,
+                    "page_creater": user_id["username"]
+                }
+                game_log.append(new_log)
+                json.dump(game_log, game_file, indent=3)
+                creditor(title, user_id["username"], title, detail, "page")
+        return index()
 
 
 @app.route("/search", methods=["POST"])
@@ -181,7 +186,7 @@ def commentWrite(game_name, usern, title, comment, tag):
     with open("data/game-log.json", "r") as games:
         game_log = json.load(games)
         for i in range(len(game_log)):
-            if game_name == game_log[i]["link"]:
+            if game_name == game_log[i]["link"] and comment not in game_log[i]["comment"]:
                 game_log[i]["comment_title"].append(title)
                 game_log[i]["comment_tag"].append(tag)
                 game_log[i]["comment"].append(comment)
@@ -191,11 +196,12 @@ def commentWrite(game_name, usern, title, comment, tag):
             json.dump(game_log, file, indent=3)
     creditor(game_name, usern, title, comment, tag)
 
+
 def creditor(game_name, usern, title, comment, tag):
     with open("data/users.json", "r") as users:
         user_log = json.load(users)
         for i in range(len(user_log)):
-            if usern == user_log[i]["username"]:
+            if usern == user_log[i]["username"] and comment not in user_log[i]["comment"]:
                 user_log[i]["game_title"].append(game_name)
                 user_log[i]["comment_title"].append(title)
                 user_log[i]["comment_tag"].append(tag)
