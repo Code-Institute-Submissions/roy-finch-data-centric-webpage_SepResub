@@ -11,6 +11,7 @@
         <p>This game is part of the {{ game.series }} series and was on the {{ game.console }}. {{ game.details }}</p>
         {% if user != "" %}
             <details>
+                <p class="blue">Within this section you can create a comment. You can create a title which contains 50 characters, and a comment which contains 350 characters. Please select the type of comment that you think your comment falls under.</p>
                 <summary>Add a comment</summary>
                 <form method="POST" class="center">
                     <input type="text" maxlength="50" placeholder="Enter a title" name="Title" autocomplete="off" required>
@@ -42,7 +43,7 @@
         </header>
         {% for rr_tag in game.rr_tag_comment %}
             {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "guide"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] %}
+                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -59,7 +60,7 @@
         {% for tag in game.comment_tag %}
             {% if tag == "guide" %}
                 {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
-                    {% if loop.index not in game.rr_tag_comment %}
+                    {% if loop.index-1 not in game.rr_tag_comment %}
                         <details class="comment bottom">
                             <summary>
                                 {{ game.comment_title[loop.index-1] }}
@@ -87,7 +88,7 @@
         </header>
         {% for rr_tag in game.rr_tag_comment %}
             {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "trivia"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] %}
+                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -104,7 +105,7 @@
         {% for tag in game.comment_tag %}
             {% if tag == "trivia" %}
                 {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
-                    {% if loop.index not in game.rr_tag_comment %}
+                    {% if loop.index-1 not in game.rr_tag_comment %}
                         <details class="comment bottom">
                             <summary>
                                 {{ game.comment_title[loop.index-1] }}
@@ -132,7 +133,7 @@
         </header>
         {% for rr_tag in game.rr_tag_comment %}
             {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "glitch"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] %}
+                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -149,7 +150,7 @@
         {% for tag in game.comment_tag %}
             {% if tag == "glitch" %}
                 {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
-                    {% if loop.index not in game.rr_tag_comment %}
+                    {% if loop.index-1 not in game.rr_tag_comment %}
                         <details class="comment bottom">
                             <summary>
                                 {{ game.comment_title[loop.index-1] }}
@@ -177,7 +178,7 @@
         </header>
         {% for rr_tag in game.rr_tag_comment %}
             {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "general"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] %}
+                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -194,7 +195,7 @@
         {% for tag in game.comment_tag %}
             {% if tag == "general" %}
                 {% if loop.index-1 == 0 or (game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1]) %}
-                    {% if loop.index not in game.rr_tag_comment %}
+                    {% if loop.index-1 not in game.rr_tag_comment %}
                         <details class="comment bottom">
                             <summary>
                                 {{ game.comment_title[loop.index-1] }}

@@ -3,10 +3,7 @@ import json
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-user_id = {
-    "username": "warr",
-    "passw": "test",
-}
+user_id = ""
 g_error_msg = 0
 
 
@@ -186,12 +183,13 @@ def commentWrite(game_name, usern, title, comment, tag):
     with open("data/game-log.json", "r") as games:
         game_log = json.load(games)
         for i in range(len(game_log)):
-            if game_name == game_log[i]["link"] and comment not in game_log[i]["comment"]:
-                game_log[i]["comment_title"].append(title)
-                game_log[i]["comment_tag"].append(tag)
-                game_log[i]["comment"].append(comment)
-                game_log[i]["author"].append(usern)
-                game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
+            if game_name == game_log[i]["link"]:
+                if comment not in game_log[i]["comment"]:
+                    game_log[i]["comment_title"].append(title)
+                    game_log[i]["comment_tag"].append(tag)
+                    game_log[i]["comment"].append(comment)
+                    game_log[i]["author"].append(usern)
+                    game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
         with open("data/game-log.json", "w") as file:
             json.dump(game_log, file, indent=3)
     creditor(game_name, usern, title, comment, tag)
@@ -201,12 +199,13 @@ def creditor(game_name, usern, title, comment, tag):
     with open("data/users.json", "r") as users:
         user_log = json.load(users)
         for i in range(len(user_log)):
-            if usern == user_log[i]["username"] and comment not in user_log[i]["comment"]:
-                user_log[i]["game_title"].append(game_name)
-                user_log[i]["comment_title"].append(title)
-                user_log[i]["comment_tag"].append(tag)
-                user_log[i]["comment"].append(comment)
-                user_log[i]["num_comments"] = user_log[i]["num_comments"]+1
+            if usern == user_log[i]["username"]:
+                if comment not in user_log[i]["comment"]:
+                    user_log[i]["game_title"].append(game_name)
+                    user_log[i]["comment_title"].append(title)
+                    user_log[i]["comment_tag"].append(tag)
+                    user_log[i]["comment"].append(comment)
+                    user_log[i]["num_comments"] = user_log[i]["num_comments"]+1
         with open("data/users.json", "w") as file:
             json.dump(user_log, file, indent=3)
 
@@ -223,4 +222,5 @@ if __name__ == "__main__":
     app.run(
         host=os.environ.get(
             "IP", "0.0.0.0"), port=int(
-                os.environ.get("PORT", "5000")), debug=True)
+                os.environ.get(
+                    "PORT", "5000")), debug=True)
