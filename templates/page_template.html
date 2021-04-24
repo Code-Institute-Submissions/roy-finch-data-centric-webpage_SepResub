@@ -42,8 +42,8 @@
             <hr>
         </header>
         {% for rr_tag in game.rr_tag_comment %}
-            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "guide"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
+            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "guide" %}
+                {% if game.rr_tag_comment[loop.index-2]+1 != game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-2]] != game.comment_tag[game.rr_tag_comment[loop.index-1]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -52,7 +52,7 @@
                 {% endif %}
                 <span class="content">{{ game.comment[game.rr_tag_comment[loop.index-1]] }}</span>
                 <br>
-                {% if not game.rr_tag_comment[loop.index-1]+1 == game.rr_tag_comment[loop.index] %}
+                {% if loop.index == game.rr_tag_comment|length or game.rr_tag_comment[loop.index-1]+1 != game.rr_tag_comment[loop.index] or game.comment_tag[game.rr_tag_comment[loop.index-1]] != game.comment_tag[game.rr_tag_comment[loop.index]] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -73,7 +73,6 @@
                     <br>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
-                        <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -87,8 +86,8 @@
             <hr>
         </header>
         {% for rr_tag in game.rr_tag_comment %}
-            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "trivia"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
+            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "trivia" %}
+                {% if game.rr_tag_comment[loop.index-2]+1 != game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-2]] != game.comment_tag[game.rr_tag_comment[loop.index-1]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -97,7 +96,7 @@
                 {% endif %}
                 <span class="content">{{ game.comment[game.rr_tag_comment[loop.index-1]] }}</span>
                 <br>
-                {% if not game.rr_tag_comment[loop.index-1]+1 == game.rr_tag_comment[loop.index] %}
+                {% if loop.index == game.rr_tag_comment|length or game.rr_tag_comment[loop.index-1]+1 != game.rr_tag_comment[loop.index] or game.comment_tag[game.rr_tag_comment[loop.index-1]] != game.comment_tag[game.rr_tag_comment[loop.index]] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -118,7 +117,6 @@
                     <br>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
-                        <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -132,8 +130,8 @@
             <hr>
         </header>
         {% for rr_tag in game.rr_tag_comment %}
-            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "glitch"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or not game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
+            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "glitch" %}
+                {% if game.rr_tag_comment[loop.index-2]+1 != game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-2]] != game.comment_tag[game.rr_tag_comment[loop.index-1]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -142,7 +140,7 @@
                 {% endif %}
                 <span class="content">{{ game.comment[game.rr_tag_comment[loop.index-1]] }}</span>
                 <br>
-                {% if not game.rr_tag_comment[loop.index-1]+1 == game.rr_tag_comment[loop.index] %}
+                {% if loop.index == game.rr_tag_comment|length or game.rr_tag_comment[loop.index-1]+1 != game.rr_tag_comment[loop.index] or game.comment_tag[game.rr_tag_comment[loop.index-1]] != game.comment_tag[game.rr_tag_comment[loop.index]] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -163,7 +161,6 @@
                     <br>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
-                        <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
@@ -177,8 +174,8 @@
             <hr>
         </header>
         {% for rr_tag in game.rr_tag_comment %}
-            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "general"%}
-                {% if loop.index-1 == 0 or not game.rr_tag_comment[loop.index-2]+1 == game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-1]] == game.comment_tag[game.rr_tag_comment[loop.index-2]] %}
+            {% if game.comment_tag[game.rr_tag_comment[loop.index-1]] == "general" %}
+                {% if game.rr_tag_comment[loop.index-2]+1 != game.rr_tag_comment[loop.index-1] or game.comment_tag[game.rr_tag_comment[loop.index-2]] != game.comment_tag[game.rr_tag_comment[loop.index-1]] %}
                     <details class="comment rr-tag">
                         <summary>
                             {{ game.comment_title[game.rr_tag_comment[loop.index-1]] }}
@@ -187,7 +184,7 @@
                 {% endif %}
                 <span class="content">{{ game.comment[game.rr_tag_comment[loop.index-1]] }}</span>
                 <br>
-                {% if not game.rr_tag_comment[loop.index-1]+1 == game.rr_tag_comment[loop.index] %}
+                {% if loop.index == game.rr_tag_comment|length or game.rr_tag_comment[loop.index-1]+1 != game.rr_tag_comment[loop.index] or game.comment_tag[game.rr_tag_comment[loop.index-1]] != game.comment_tag[game.rr_tag_comment[loop.index]] %}
                     </details>
                 {% endif %}
             {% endif %}
@@ -208,7 +205,6 @@
                     <br>
                 {% endif %}
                 {% if game.comment_tag[loop.index-1] != game.comment_tag[loop.index] or game.comment_title[loop.index-1] != game.comment_title[loop.index] or game.author[loop.index-1] != game.author[loop.index] %}
-                        <image href="/static/img/controller.png"></image>
                     </details>
                 {% endif %}
             {% endif %}
