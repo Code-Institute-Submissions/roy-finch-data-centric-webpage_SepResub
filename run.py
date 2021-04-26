@@ -149,8 +149,10 @@ def result(query):
             if query.lower() in file[i]["name"].lower():
                 results.append(file[i])
         num = len(results)
-        if num == 0:
+        if num == 0 and user_id != "":
             return inquire()
+        elif user_id == "":
+            return index()
         return render_template(
             "result.html", results=(
                 results), num_search=(

@@ -21,6 +21,8 @@
     {% endfor %}
 
     <br>
-    <a class="a-none center blue" href="{{ url_for('inquire') }}">Did you find the game you where looking for? If not use this link.</a>
+    {% if user != "" %}
+        <a class="a-none center blue" href="{{ url_for('inquire') }}">Did you find the game you where looking for? If not use this link.</a>
+    {% endif %}
 </section>
 {% endblock %}
