@@ -32,6 +32,21 @@ I wanted to also create a search function which will use the colour blue just as
 <h2>Development</h2>
 
 <h2>During Development</h2>
+Whilst creating this website there was many changes which I had done to this site to make it truer to the idea that I had. I wanted to change the way on which comments where presented. The comments can now be hidden or shown using the summary and details tag. This was in an effort to condense pages and comments and also allow for people to find comments with titles that may be more suitable and prevents people from seeing random peices of content which could effect the user experience.
+
+I also added a feature to do with something called a blue tag or RR tag which will be presented as a simple blue mark aside a comment. This is to show the user that the comment has been checked and is seen by me and my site as a comment which is suitable for everyone to read. I do this in an effort to show that some comments are better than other comments within the website. This will show that I take a sense of pride within these commetns and would like to priorities these over other comments.
+
+I have had several ideas for the results page, I have tried to think of the best way to present the hyperlinks and how I'd like the information to be shown. I want to make sure that the information which is presented is true to how I feel it should be. I chose to go for a standard search engine style and made the link colour the same as the blue colour which is used within the site and a comment underneith it to show the user what this game is about so they know that it is the game they are looking for.
+
+I have removed the use of some of the icons that I was going to use within the footer. I wanted to include an icon which was a chat bubble, book and a profile icon which would have present to the user a way to access a chat, a profile page and a comment section but I wanted to combine most of my pages into one. I like how the final setup came out and I am glad that I have laid it out the way I have. Combining the different features was, in my opinion better for the user or viewer.
+
+I am proud of the image of the site that I have created I feel as though the site has been created with a unique identity. I feel as though the font, layout and the colour theme have given my site personality and truly presented the intented function and presentation of what I wanted to create.
+
+I had a moment where I had disabled the account page as this was due to the idea that I didn't know what I wanted to do. I wanted to create a familiar layout but I was still unsure of how it may look. Now that I have created this layout and find that it truly defines my site and have now allowed a user to access an account page which is filled with activity.
+
+The structure of my code has been created as what I feel is the best layout. Routing functions are first, then functions which have general uses and then finally the if launch statement was the final part of the script. I have also included comments within all of my files. The HTML and Python will both be given some comments to describe what I have intended to do.
+
+I feel as though the site is self explanitary and contains a homepage which includes information about how the user or viewer can use my site to better themselves.
 
 <h2>Finalizing</h2>
 
