@@ -153,12 +153,13 @@ def result(query):
             return inquire()
         elif user_id == "":
             return index()
-        return render_template(
-            "result.html", results=(
-                results), num_search=(
-                    num), query=(
-                        query), user=(
-                            user_id))
+        else:
+            return render_template(
+                "result.html", results=(
+                    results), num_search=(
+                        num), query=(
+                            query), user=(
+                                user_id))
 
 
 @app.route("/<game_name>", methods=["POST", "GET"])
