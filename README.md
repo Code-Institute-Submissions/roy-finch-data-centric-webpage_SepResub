@@ -14,6 +14,14 @@ I would like to begin with a simple style and a simple set of fonts and colours 
 
 As I understood I wanted to create a site I also wanted to make it a forum or view page which can be used by different people to post a comment. With this in mind I would also like to create a suitable but catchy name which can wear the theme with pride. I believe this mesh and moulding of these two features are what create the website for what it really is.
 
+I have create a wireframe to use as the bones of my site and from this I will create the site and begin to build it to try and get it close to the wireframes structure.
+
+Miro, Wireframe https://miro.com/app/board/o9J_lH1IXGs=/
+
+Within this wireframe I am thinking about a few ideas about the idea of the use of colours red and purple or red and blue are the colours I would like to use within my site. Both colours must be deep, strong but very dark colours. The wireframe contains information about what I would like to include within certain locations or pages. The text is something that I would like to create later in development but I know what should be placed there. I feel as though the text may change several times over, so I feel as though the text could be left out for the mean time.
+
+Within the wireframe I tried to present the navigation to the page and believe that it doesn't properly betray how to use the site. You can use the search bar which is in the navigation bar to access a results page. The results will contain a series of names which have hyperlinks to connect to the respected page. Once on the page you can see comments which are split up into different sections. You can always access the homepage from the use of the logo and title. You can also use the login button to access the login page and then the login button becomes an account or signout afterwards. On the results page you will have the ability to create a page with the name of a game which is not included in the results page or data base. Signout will go back to the homepage and the account link will take the user to the account page. This is roughly how the navigation system will work on my website.
+
 <h2>Initial Concept</h2>
 I want to create a site about games, which will have the user be able to write about a game of there choice. I also want to make sure that the user or viewer can also read a comment no matter what. I want to make sure that a user can possibly create a page if the game is not included.
 
@@ -71,4 +79,7 @@ I feel as though the site is self explanitary and contains a homepage which incl
 <h2>Finalizing</h2>
 I have asked for my friends opinion on the site. I have shown them the site and they have discussed with me that the idea, layout and structure suit what I am after. I truly agree with this opinion on how the site is and how it works.
 
+I have gone from the original model of the wireframe in some locations.
+
 <h2>Bibliography</h2>
+Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be layed out.
