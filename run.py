@@ -226,7 +226,7 @@ def commentWrite(game_name, usern, title, comment, tag):
                     game_log[i]["comment_tag"].append(tag)
                     game_log[i]["comment"].append(comment)
                     game_log[i]["author"].append(usern)
-                    game_log[i]["num_comments"] = len(game_log[i]["comment"])+1
+                    game_log[i]["num_comments"] = len(game_log[i]["comment"])
         with open("data/game-log.json", "w") as file:
             json.dump(game_log, file, indent=3)
     creditor(game_name, usern, title, comment, tag)
@@ -248,7 +248,7 @@ def creditor(game_name, usern, title, comment, tag):
                     user_log[i]["comment_title"].append(title)
                     user_log[i]["comment_tag"].append(tag)
                     user_log[i]["comment"].append(comment)
-                    user_log[i]["num_comments"] = len(user_log[i]["comment"])+1
+                    user_log[i]["num_comments"] = len(user_log[i]["comment"])
         with open("data/users.json", "w") as file:
             json.dump(user_log, file, indent=3)
 
