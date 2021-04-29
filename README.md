@@ -81,6 +81,8 @@ I have asked for my friends opinion on the site. I have shown them the site and 
 
 I have gone from the original model of the wireframe in some locations.
 
+I have had a friend test my website with me and with his help I had found out a series of issues with the website. I had noticed that the way on which I deal with users doesn't suit the situation I need. I need the website to be able to have several users at once and realised that the user could only have one login at once. Now I have started to use the Flask-Login module to help with multi-user support. I had continued to use the things that I had already in place but then also just worked in the login master and some of the modules to allow for multi-user support. Now I have tested this site and found that the website can now support several active users, and still use the files which I have made at the beginning.
+
 I have set up this GitHub repository online and 
 
 <h2>Bibliography</h2>

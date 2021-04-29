@@ -31,8 +31,7 @@
         <footer>
             {% if "user_id" in session %}
                 <a class="a-none blue singout-link" href="{{ url_for('account') }}">Account</a>
-                <br>
-                <a class="a-none red signout-link" href="{{ url_for('signout') }}">Signout</a>
+                <a class="a-none red singout-link" href="{{ url_for('signout') }}">Signout</a>
             {% else %}
                 <a class="a-none login-link" href="{{ url_for('login') }}">
                     <span class="red">Login</span>
