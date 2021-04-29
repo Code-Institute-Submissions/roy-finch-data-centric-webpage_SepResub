@@ -93,7 +93,7 @@ Heroku Live Website - https://data-centric-webpage-roy-finch.herokuapp.com/
 
 I have changed a few things about my webpage as I have had to change the website to suit the multi-user update. I needed to change some features about the website as it has been done differently now.
 
-I have also deleted the assets that are bot used on my website as they dont suit the use of them now. I will keep the site the way it is now as it still presents everything that I want to present on the site,
+I have also deleted the assets that are not used on my website as they dont suit the use of them now. I will keep the site the way it is now as it still presents everything that I want to present on the site, and correctly keeps the site true to how I want it took look and function.
 
 <h2>Bibliography</h2>
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be layed out.

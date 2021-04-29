@@ -1,7 +1,7 @@
 import os
 import json
 from flask import (
-    Flask, render_template, request, session
+    Flask, render_template, request, session, redirect, url_for
     )
 from flask_login import (
     LoginManager, login_user, logout_user, current_user
@@ -42,14 +42,17 @@ def login():
         return render_template(
             "login.html", error_message=g_error_msg)
     else:
-        return index()
+        return redirect({{url_for("index")}})
 
 
 @app.route("/account")
 def account():
     # This gets the user info and the renders the account page.
-    user = userID(current_user)
-    return render_template("account.html", user=user)
+    if current_user is not None:
+        user = userID(current_user)
+        return render_template("account.html", user=user)
+    else:
+        redirect({{url_for("login")}})
 
 
 @app.route("/singin", methods=["POST"])
@@ -142,7 +145,7 @@ def signin():
                     file.append(user_id)
                     json.dump(file, users, indent=3)
             # Return to the index after they are added to the user file.
-            return index()
+            return redirect({{url_for("index")}})
         else:
             # Set up the g_error_msg as global and output it for the
             # login page to use it.
@@ -153,7 +156,7 @@ def signin():
             # Reset the password var
             passw = ""
             # Return the login page with the new error.
-            return login()
+            return redirect({{url_for("login")}})
 
 
 @app.route("/inquire")
@@ -221,7 +224,7 @@ def post():
                 creditor(title, userID(
                     current_user)["username"], title, detail, "page")
         # Return the homepage once the games added
-        return index()
+        return redirect({{url_for("index")}})
 
 
 @app.route("/search", methods=["POST"])
@@ -265,11 +268,11 @@ def result(query):
         num = len(results)
         # If the amount of results is 0 return index.
         if num == 0 and "user_id" in session:
-            return index()
+            return redirect({{url_for("index")}})
         # if the amount of results is 0 but user is active.
         elif num == 0 and "user_id" in session:
             # Return the inquire function to allow user to add page.
-            return inquire()
+            return redirect({{url_for("inquire")}})
         else:
             # Render the results template with obtained information.
             return render_template(
