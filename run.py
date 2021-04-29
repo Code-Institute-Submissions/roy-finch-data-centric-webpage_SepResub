@@ -3,27 +3,57 @@ import json
 from flask import (
     Flask, render_template, request, session, g
 )
+from flask_login import LoginManager, login_user, logout_user, current_user
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret-key"
+
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 g_error_msg = 0
 
 
 class User:
-    def __init__(self, id, username, password):
+    def __init__(self, id, username, password, authenticated, active):
         self.id = id
         self.username = username
         self.password = password
+        self.active = active
+        self.authenticated = authenticated
+
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+    
+    def get_Name(self):
+        return self.username
+
+    def get_id(self):
+        return self.id
+
+    def get(self):
+        return self
 
 
-@app.before_request
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
+
+
+"""@app.before_request
 def before_request():
     if "user_id" in session:
         with open("data/users.json", "r") as users:
             file = json.load(users)
             for i in range(len(file)):
                 if file[i]["id"] == session["user_id"]:
-                    g.user = file[i]
+                    g.user = file[i]"""
 
 
 @app.route("/")
@@ -33,6 +63,8 @@ def index():
 
 @app.route("/signout")
 def signout():
+    logout_user()
+    session.pop("user_id", None)
     return login()
 
 
@@ -47,7 +79,8 @@ def login():
 
 @app.route("/account")
 def account():
-    return render_template("account.html")
+    user = userID(current_user)
+    return render_template("account.html", user=user)
 
 
 @app.route("/singin", methods=["POST"])
@@ -72,6 +105,8 @@ def signin():
                     if passw == file[i]["passw"]:
                         user_auth = True
                         session["user_id"] = file[i]["id"]
+                        login_user(User(
+                            file[i]["id"], usern, passw, True, True))
                     else:
                         error_msg = 1
                 else:
@@ -86,7 +121,7 @@ def signin():
             with open("data/users.json", "r") as raw_file:
                 file = json.load(raw_file)
                 user_id = {
-                    "id": len(file),
+                    "id": len(file)+1,
                     "username": usern,
                     "passw": passw,
                     "game_title": [
@@ -100,6 +135,8 @@ def signin():
                     "num_comments": 0
                 }
                 session["user_id"] = user_id["id"]
+                user = User(user_id["id"], usern, passw, True, False)
+                login_user(user)
                 with open("data/users.json", "w") as users:
                     file.append(user_id)
                     json.dump(file, users, indent=3)
@@ -148,11 +185,12 @@ def post():
                     "author": [
                     ],
                     "num_comments": 0,
-                    "page_creater": g.user["username"]
+                    "page_creater": userID(current_user)["username"]
                 }
                 game_log.append(new_log)
                 json.dump(game_log, game_file, indent=3)
-                creditor(title, g.user["username"], title, detail, "page")
+                creditor(title, userID(
+                    current_user)["username"], title, detail, "page")
         return index()
 
 
@@ -191,13 +229,14 @@ def result(query):
 
 @app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
+    user = userID(current_user)
     if request.method == "POST":
-        if "user_id" in session:
+        if current_user is not None:
             title = request.form.get("Title")
             tag = request.form.get("Radio")
             detail = request.form.get("Details")
             commentWrite(
-                game_name, g.user["username"], title, detail, tag)
+                game_name, user, title, detail, tag)
     file = []
     with open("data/game-log.json", "r") as games_data:
         file = json.load(games_data)
@@ -210,7 +249,7 @@ def page_load(game_name):
                 else:
                     red = obj["name"]
     return render_template(
-        "page_template.html", game=game, red=red, blue=blue)
+        "page_template.html", game=game, red=red, blue=blue, user=user)
 
 
 def commentWrite(game_name, usern, title, comment, tag):
@@ -223,10 +262,16 @@ def commentWrite(game_name, usern, title, comment, tag):
                     game_log[i]["comment_tag"].append(tag)
                     game_log[i]["comment"].append(comment)
                     game_log[i]["author"].append(usern)
-                    game_log[i]["num_comments"] = game_log[i]["num_comments"]+1
+                    game_log[i]["num_comments"] = len(game_log[i]["comment"])+1
         with open("data/game-log.json", "w") as file:
             json.dump(game_log, file, indent=3)
     creditor(game_name, usern, title, comment, tag)
+
+
+def userID(user_id):
+    with open("data/users.json", "r") as users:
+        user_log = json.load(users)
+        return user_log[user_id-1]
 
 
 def creditor(game_name, usern, title, comment, tag):
@@ -239,7 +284,7 @@ def creditor(game_name, usern, title, comment, tag):
                     user_log[i]["comment_title"].append(title)
                     user_log[i]["comment_tag"].append(tag)
                     user_log[i]["comment"].append(comment)
-                    user_log[i]["num_comments"] = user_log[i]["num_comments"]+1
+                    user_log[i]["num_comments"] = len(user_log[i]["comment"])+1
         with open("data/users.json", "w") as file:
             json.dump(user_log, file, indent=3)
 

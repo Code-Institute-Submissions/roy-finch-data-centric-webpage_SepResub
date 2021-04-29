@@ -5,126 +5,126 @@
     <header>
         <h3 class="center" id="title">
             <span class="retro">Hello </span>
-            <span class="review">{{ g.user.username}}</span>
+            <span class="review">{{ user.username }}</span>
         </h3>
         <hr>
         <p>This is your account page where you can view comments that you have made on previous threads.</p>
     </header>
 </section>
-{% if "page" in g.user.comment_tag %}
+{% if "page" in user.comment_tag %}
     <section>
         <header>
             <h4>Pages Started</h4>
             <hr>
         </header>
-        {% for tag in g.user.comment_tag %}
+        {% for tag in user.comment_tag %}
             {% if tag == "page" %}
-                {% if loop.index-1 == 0 or g.user.comment_title[loop.index-2] != g.user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ g.user.comment_title[loop.index-1] }}
-                            <span class="right">on {{ g.user.game_title[loop.index-1] }}</span>
+                            {{ user.comment_title[loop.index-1] }}
+                            <span class="right">on {{ user.game_title[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                <span class="content">{{ g.user.comment[loop.index-1] }}</span>
+                <span class="content">{{ user.comment[loop.index-1] }}</span>
                 <br>
-                {% if g.user.comment_tag[loop.index-1] != g.user.comment_tag[loop.index] or g.user.comment_title[loop.index-1] != g.user.comment_title[loop.index]  %}
+                {% if user.comment_tag[loop.index-1] != user.comment_tag[loop.index] or user.comment_title[loop.index-1] != user.comment_title[loop.index]  %}
                     </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
     </section>
 {% endif %}
-{% if "guide" in g.user.comment_tag %}
+{% if "guide" in user.comment_tag %}
     <section>
         <header>
             <h4>Guides</h4>
             <hr>
         </header>
-        {% for tag in g.user.comment_tag %}
+        {% for tag in user.comment_tag %}
             {% if tag == "guide" %}
-                {% if loop.index-1 == 0 or g.user.comment_title[loop.index-2] != g.user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ g.user.comment_title[loop.index-1] }}
-                            <span class="right">on {{ g.user.game_title[loop.index-1] }}</span>
+                            {{ user.comment_title[loop.index-1] }}
+                            <span class="right">on {{ user.game_title[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                <span class="content">{{ g.user.comment[loop.index-1] }}</span>
+                <span class="content">{{ user.comment[loop.index-1] }}</span>
                 <br>
-                {% if g.user.comment_tag[loop.index-1] != g.user.comment_tag[loop.index] or g.user.comment_title[loop.index-1] != g.user.comment_title[loop.index] %}
+                {% if user.comment_tag[loop.index-1] != user.comment_tag[loop.index] or user.comment_title[loop.index-1] != user.comment_title[loop.index] %}
                     </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
     </section>
 {% endif %}
-{% if "trivia" in g.user.comment_tag %}
+{% if "trivia" in user.comment_tag %}
     <section>
         <header>
             <h4>Trivia</h4>
             <hr>
         </header>
-        {% for tag in g.user.comment_tag %}
+        {% for tag in user.comment_tag %}
             {% if tag == "trivia" %}
-                {% if loop.index-1 == 0 or g.user.comment_title[loop.index-2] != g.user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ g.user.comment_title[loop.index-1] }}
-                            <span class="right">on {{ g.user.game_title[loop.index-1] }}</span>
+                            {{ user.comment_title[loop.index-1] }}
+                            <span class="right">on {{ user.game_title[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                <span class="content">{{ g.user.comment[loop.index-1] }}</span>
+                <span class="content">{{ user.comment[loop.index-1] }}</span>
                 <br>
-                {% if g.user.comment_tag[loop.index-1] != g.user.comment_tag[loop.index] or g.user.comment_title[loop.index-1] != g.user.comment_title[loop.index] %}
+                {% if user.comment_tag[loop.index-1] != user.comment_tag[loop.index] or user.comment_title[loop.index-1] != user.comment_title[loop.index] %}
                     </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
     </section>
 {% endif %}
-{% if "glitch" in g.user.comment_tag %}
+{% if "glitch" in user.comment_tag %}
     <section>
         <header>
             <h4>Glitches</h4>
             <hr>
         </header>
-        {% for tag in g.user.comment_tag %}
+        {% for tag in user.comment_tag %}
             {% if tag == "glitch" %}
-                {% if loop.index-1 == 0 or g.user.comment_title[loop.index-2] != g.user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ g.user.comment_title[loop.index-1] }}
-                            <span class="right">on {{ g.user.game_title[loop.index-1] }}</span>
+                            {{ user.comment_title[loop.index-1] }}
+                            <span class="right">on {{ user.game_title[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                <span class="content">{{ g.user.comment[loop.index-1] }}</span>
+                <span class="content">{{ user.comment[loop.index-1] }}</span>
                 <br>
-                {% if g.user.comment_tag[loop.index-1] != g.user.comment_tag[loop.index] or g.user.comment_title[loop.index-1] != g.user.comment_title[loop.index] %}
+                {% if user.comment_tag[loop.index-1] != user.comment_tag[loop.index] or user.comment_title[loop.index-1] != user.comment_title[loop.index] %}
                     </details>
                 {% endif %}
             {% endif %}
         {% endfor %}
     </section>
 {% endif %}
-{% if "general" in g.user.comment_tag %}
+{% if "general" in user.comment_tag %}
     <section>
         <header>
             <h4>General</h4>
             <hr>
         </header>
-        {% for tag in g.user.comment_tag %}
+        {% for tag in user.comment_tag %}
             {% if tag == "general" %}
-                {% if loop.index-1 == 0 or g.user.comment_title[loop.index-2] != g.user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
-                            {{ g.user.comment_title[loop.index-1] }}
-                            <span class="right">on {{ g.user.game_title[loop.index-1] }}</span>
+                            {{ user.comment_title[loop.index-1] }}
+                            <span class="right">on {{ user.game_title[loop.index-1] }}</span>
                         </summary>
                 {% endif %}
-                <span class="content">{{ g.user.comment[loop.index-1] }}</span>
+                <span class="content">{{ user.comment[loop.index-1] }}</span>
                 <br>
-                {% if g.user.comment_tag[loop.index-1] != g.user.comment_tag[loop.index] or g.user.comment_title[loop.index-1] != g.user.comment_title[loop.index]  %}
+                {% if user.comment_tag[loop.index-1] != user.comment_tag[loop.index] or user.comment_title[loop.index-1] != user.comment_title[loop.index]  %}
                     </details>
                 {% endif %}
             {% endif %}

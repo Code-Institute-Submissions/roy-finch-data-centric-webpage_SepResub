@@ -46,19 +46,43 @@
       "comment": [
          "You begin your adventures as Mario you have just been invited by Peach to come to the castle as she has baked you a cake. Once you come into the game, you dont expect anything unusual, but as you enter into the castle you where a wierd bowser-like laugh and realise that you will not be able to try that cake you where brought here for.",
          "In the room you notice that there is a series of door with stars on them with numbers inside them. This number indicates how many stars are needed to open corrisponding door. You then enter the door to your first level. You enter the painting and come to Bob-omb Battlefield. Here is where you realise you had just entered a battle between the bob-omb's.",
-         "The thing is the game is really amazing as a child you enjoy the adventures and even as an adult. Theirs issues with the controller on the original 64 version but that still doesnt mean that this game is amazing. I love the music even to this day and on older consoles the music was one of the little things that made you really feel happy to play."
+         "The thing is the game is really amazing as a child you enjoy the adventures and even as an adult. Theirs issues with the controller on the original 64 version but that still doesnt mean that this game is amazing. I love the music even to this day and on older consoles the music was one of the little things that made you really feel happy to play.",
+         "test"
       ],
       "author": [
          "warr",
          "warr",
          "warr"
       ],
-      "num_comments": 3,
+      "num_comments": 3
+   },
+   {
+      "name": "Super Mario Kart",
+      "series": "Super Mario Kart",
+      "console": "SNES",
+      "details": "This was one of the first games of the Mario Kart franchise, and even though this game is quite old and dated, it bring an amazing and serious series of different and interesting functions.",
+      "link": "super_mario_kart",
+      "game_title": [],
+      "comment_title": [],
+      "comment_tag": [],
+      "comment": [],
+      "author": [],
+      "num_comments": 0,
       "page_creater": "warr",
-      "rr_tag_comment": [
-         0,
-         1,
-         2
-      ]
+      "rr_tag_comment": []
+   },
+   {
+      "name": "Bioshock",
+      "series": "Bioshock",
+      "console": "Xbox 360, PlayStation 3",
+      "details": "This is a great game which takes you though a series of different locations. This is based around the idea of a man creating a new world which takes key parts of socialism and capitalism and gives more to the workers without restrictions.",
+      "link": "bioshock",
+      "game_title": [],
+      "comment_title": [],
+      "comment_tag": [],
+      "comment": [],
+      "author": [],
+      "num_comments": 0,
+      "page_creater": "warr"
    }
 ]
