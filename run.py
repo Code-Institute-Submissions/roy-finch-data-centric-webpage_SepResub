@@ -4,56 +4,18 @@ from flask import (
     Flask, render_template, request, session, g
 )
 from flask_login import LoginManager, login_user, logout_user, current_user
+from model import User
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret-key"
-
 login_manager = LoginManager()
 login_manager.init_app(app)
-
 g_error_msg = 0
-
-
-class User:
-    def __init__(self, id, username, password, authenticated, active):
-        self.id = id
-        self.username = username
-        self.password = password
-        self.active = active
-        self.authenticated = authenticated
-
-    def is_active(self):
-        return True
-
-    def is_authenticated(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-    
-    def get_Name(self):
-        return self.username
-
-    def get_id(self):
-        return self.id
-
-    def get(self):
-        return self
 
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
-
-
-"""@app.before_request
-def before_request():
-    if "user_id" in session:
-        with open("data/users.json", "r") as users:
-            file = json.load(users)
-            for i in range(len(file)):
-                if file[i]["id"] == session["user_id"]:
-                    g.user = file[i]"""
 
 
 @app.route("/")
