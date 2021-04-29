@@ -9,7 +9,7 @@
         </h3>
         <hr>
         <p>This game is part of the {{ game.series }} series and was on the {{ game.console }}. {{ game.details }}</p>
-        {% if user.username != "" %}
+        {% if user != "" %}
             <details>
                 <p class="blue">Within this section you can create a comment. You can create a title which contains 50 characters, and a comment which contains 350 characters. Please select the type of comment that you think your comment falls under.</p>
                 <summary>Add a comment</summary>

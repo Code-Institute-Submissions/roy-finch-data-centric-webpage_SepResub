@@ -5,11 +5,19 @@
       "console": "Wii",
       "details": "Another Mario adventure on which you go into space and have a new galactic adventure, with brand new companions. You will help Rosalina though a series of amazing adventures thoughout a series of amazing locations with clever and interesting features and controlls. This has an amazing story and a clever use of the Wii Motion Control features.",
       "link": "super_mario_galaxy",
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "author": [],
-      "num_comments": 0,
+      "comment_title": [
+         "This is an amazing experience"
+      ],
+      "comment_tag": [
+         "general"
+      ],
+      "comment": [
+         "This is one of the unique mario games which is brilliant as it takes you into space and on an adventure to see different planets and uses a series of cool and interesting function and features."
+      ],
+      "author": [
+         "warr"
+      ],
+      "num_comments": 1,
       "page_creater": "warr",
       "rr_tag_comment": []
    },
@@ -54,7 +62,8 @@
          "warr",
          "warr"
       ],
-      "num_comments": 3
+      "num_comments": 3,
+      "page_creater": "warr"
    },
    {
       "name": "Super Mario Kart",
@@ -77,6 +86,20 @@
       "console": "Xbox 360, PlayStation 3",
       "details": "This is a great game which takes you though a series of different locations. This is based around the idea of a man creating a new world which takes key parts of socialism and capitalism and gives more to the workers without restrictions.",
       "link": "bioshock",
+      "game_title": [],
+      "comment_title": [],
+      "comment_tag": [],
+      "comment": [],
+      "author": [],
+      "num_comments": 0,
+      "page_creater": "warr"
+   },
+   {
+      "name": "Bioshock 2",
+      "series": "Bioshock 2",
+      "console": "Xbox 360, PlayStation 3",
+      "details": "This is the second game of the Bioshock game where you are within a moral dilema and need to save a series of girls called \"little girls\" which are in need of your help. You are in the same location and must seek answers to a new question.",
+      "link": "bioshock_2",
       "game_title": [],
       "comment_title": [],
       "comment_tag": [],

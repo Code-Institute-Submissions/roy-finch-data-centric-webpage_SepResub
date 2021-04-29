@@ -59,6 +59,8 @@ Within the first data file, the game-log.json file which is the file that is use
     "rr_tag_comment": [] Finally this is the array which holds the numeric value of which comments have been blue tagged and is made into an RR tag on comments within a page. The value of the comments index position is placed within this array to priorities it above all other comments.
     I have changed the structure of this site several times over but have settled with a simplified version of what I wanted originally. I prefer to program to present my idea and then begin to make the code more simple and effective. Simple but effective code can make a job easier and take up less time and space.
 
+I would like to continue to use these data formats the these .json files to perform these tasks on my site. I feel as though all the tasks I have set on this site are completed with the use of these data files.
+
 <h2>During Development</h2>
 Whilst creating this website there was many changes which I had done to this site to make it truer to the idea that I had. I wanted to change the way on which comments where presented. The comments can now be hidden or shown using the summary and details tag. This was in an effort to condense pages and comments and also allow for people to find comments with titles that may be more suitable and prevents people from seeing random peices of content which could effect the user experience.
 
@@ -85,5 +87,14 @@ I have had a friend test my website with me and with his help I had found out a 
 
 I have set up this GitHub repository online and on the Heroku site. I want to be able to get the site on Heroku first to check the site over. Relatively the site can now be used and data can also be stored correctly. If the files are edited on the Heroku site then the files will not be changed and edited on Github.
 
+The site is set up at this link and has been updated to the latest version of my website.
+
+Heroku Live Website - https://data-centric-webpage-roy-finch.herokuapp.com/
+
+I have changed a few things about my webpage as I have had to change the website to suit the multi-user update. I needed to change some features about the website as it has been done differently now.
+
+I have also deleted the assets that are bot used on my website as they dont suit the use of them now. I will keep the site the way it is now as it still presents everything that I want to present on the site,
+
 <h2>Bibliography</h2>
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be layed out.
+Heroku - https://dashboard.heroku.com/apps - used this to upload and publish the website to as it supports the python language and python applications.

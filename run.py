@@ -282,14 +282,13 @@ def result(query):
 @app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
     # Function to load the webpage with the game name.
-    # Find the current users ID
-    user = userID(current_user)["username"]
     # When request method is POST
     if request.method == "POST":
         # If there is a current user continue
         if current_user is not None:
             # Get information from form and use it too write
             # the comment using involved data.
+            user = userID(current_user)["username"]
             title = request.form.get("Title")
             tag = request.form.get("Radio")
             detail = request.form.get("Details")
@@ -324,8 +323,14 @@ def page_load(game_name):
                     # Just make the title red if the series is not right.
                     red = obj["name"]
     # render the page template with the data thats obtained.
-    return render_template(
-        "page_template.html", game=game, red=red, blue=blue, user=user)
+    # Find the current users ID
+    if current_user is not None and userID(current_user) is not False:
+        user = userID(current_user)["username"]
+        return render_template(
+            "page_template.html", game=game, red=red, blue=blue, user=user)
+    else:
+        return render_template(
+            "page_template.html", game=game, red=red, blue=blue, user="")
 
 
 def commentWrite(game_name, usern, title, comment, tag):
@@ -360,11 +365,15 @@ def userID(user_id):
     # Use the id to find the data about a user.
     # Use the id given to find the data required
     # by the different pages and functions.
-    with open("data/users.json", "r") as users:
-        # Open the users file and convert it using json.
-        user_log = json.load(users)
-        # Return the user using the id.
-        return user_log[user_id-1]
+    try:
+        int(user_id)
+        with open("data/users.json", "r") as users:
+            # Open the users file and convert it using json.
+            user_log = json.load(users)
+            # Return the user using the id.
+            return user_log[user_id-1]
+    except Exception:
+        return False
 
 
 def creditor(game_name, usern, title, comment, tag):
