@@ -193,7 +193,7 @@ def result(query):
 
 @app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
-    user = userID(current_user)
+    user = userID(current_user)["username"]
     if request.method == "POST":
         if current_user is not None:
             title = request.form.get("Title")
