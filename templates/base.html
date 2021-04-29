@@ -29,16 +29,16 @@
         {% endblock %}
 
         <footer>
-            {% if "user_id" not in session %}
+            {% if "user_id" in session %}
+                <a class="a-none blue singout-link" href="{{ url_for('account') }}">Account</a>
+                <br>
+                <a class="a-none red signout-link" href="{{ url_for('signout') }}">Signout</a>
+            {% else %}
                 <a class="a-none login-link" href="{{ url_for('login') }}">
                     <span class="red">Login</span>
                     <span> & </span>
                     <span class="blue">Signup</span>
                 </a>
-            {% else %}
-                <a class="a-none blue singout-link" href="{{ url_for('account') }}">Account</a>
-                <br>
-                <a class="a-none red signout-link" href="{{ url_for('signout') }}">Signout</a>
             {% endif %}
         </footer>
     </main>
