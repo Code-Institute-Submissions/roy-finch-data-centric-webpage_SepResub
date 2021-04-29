@@ -1,40 +1,58 @@
 import os
 import json
-from flask import Flask, render_template, request
-
+from flask import (
+    Flask, render_template, request, session, g
+)
 app = Flask(__name__)
-user_id = ""
+app.config["SECRET_KEY"] = "secret-key"
+
 g_error_msg = 0
+
+
+class User:
+    def __init__(self, id, username, password):
+        self.id = id
+        self.username = username
+        self.password = password
+
+
+@app.before_request
+def before_request():
+    if "user_id" in session:
+        with open("data/users.json", "r") as users:
+            file = json.load(users)
+            for i in range(len(file)):
+                if file[i]["id"] == session["user_id"]:
+                    g.user = file[i]
 
 
 @app.route("/")
 def index():
-    return render_template("index.html", user=user_id)
+    return render_template("index.html")
 
 
 @app.route("/signout")
 def signout():
-    global user_id
-    user_id = ""
     return login()
 
 
 @app.route("/login")
 def login():
-    if user_id == "":
+    if g is not None:
         return render_template(
-            "login.html", user=user_id, error_message=g_error_msg)
+            "login.html", error_message=g_error_msg)
     else:
         return index()
 
 
 @app.route("/account")
 def account():
-    return render_template("account.html", user=user_id)
+    return render_template("account.html")
 
 
 @app.route("/singin", methods=["POST"])
 def signin():
+    session.pop("user_id", None)
     error_msg = 0
     action = request.form.get("Submit")
     usern = request.form.get("Username")
@@ -53,8 +71,7 @@ def signin():
                 if usern == file[i]["username"]:
                     if passw == file[i]["passw"]:
                         user_auth = True
-                        global user_id
-                        user_id = file[i]
+                        session["user_id"] = file[i]["id"]
                     else:
                         error_msg = 1
                 else:
@@ -64,18 +81,29 @@ def signin():
                     user_auth = False
                     error_msg = 3
         if user_auth is True and action == "login":
-            return account()
+            return index()
         elif user_auth is True and action == "signup":
             with open("data/users.json", "r") as raw_file:
                 file = json.load(raw_file)
                 user_id = {
+                    "id": len(file),
                     "username": usern,
-                    "passw": passw
+                    "passw": passw,
+                    "game_title": [
+                    ],
+                    "comment_title": [
+                    ],
+                    "comment_tag": [
+                    ],
+                    "comment": [
+                    ],
+                    "num_comments": 0
                 }
+                session["user_id"] = user_id["id"]
                 with open("data/users.json", "w") as users:
                     file.append(user_id)
                     json.dump(file, users, indent=3)
-            return account()
+            return index()
         else:
             global g_error_msg
             g_error_msg = error_msg
@@ -86,7 +114,7 @@ def signin():
 
 @app.route("/inquire")
 def inquire():
-    return render_template("page_inquiry.html", user=user_id)
+    return render_template("page_inquiry.html")
 
 
 @app.route("/post", methods=["POST"])
@@ -120,11 +148,11 @@ def post():
                     "author": [
                     ],
                     "num_comments": 0,
-                    "page_creater": user_id["username"]
+                    "page_creater": g.user["username"]
                 }
                 game_log.append(new_log)
                 json.dump(game_log, game_file, indent=3)
-                creditor(title, user_id["username"], title, detail, "page")
+                creditor(title, g.user["username"], title, detail, "page")
         return index()
 
 
@@ -135,7 +163,7 @@ def search():
 
 
 def error():
-    return render_template("error.html", user=user_id)
+    return render_template("error.html")
 
 
 def result(query):
@@ -149,28 +177,27 @@ def result(query):
             if query.lower() in file[i]["name"].lower():
                 results.append(file[i])
         num = len(results)
-        if num == 0 and user_id == "":
+        if num == 0 and "user_id" in session:
             return index()
-        elif num == 0 and user_id != "":
+        elif num == 0 and "user_id" in session:
             return inquire()
         else:
             return render_template(
                 "result.html", results=(
                     results), num_search=(
                         num), query=(
-                            query), user=(
-                                user_id))
+                            query))
 
 
 @app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
     if request.method == "POST":
-        if len(user_id) > 0:
+        if "user_id" in session:
             title = request.form.get("Title")
             tag = request.form.get("Radio")
             detail = request.form.get("Details")
             commentWrite(
-                game_name, user_id["username"], title, detail, tag)
+                game_name, g.user["username"], title, detail, tag)
     file = []
     with open("data/game-log.json", "r") as games_data:
         file = json.load(games_data)
@@ -183,7 +210,7 @@ def page_load(game_name):
                 else:
                     red = obj["name"]
     return render_template(
-        "page_template.html", game=game, red=red, blue=blue, user=user_id)
+        "page_template.html", game=game, red=red, blue=blue)
 
 
 def commentWrite(game_name, usern, title, comment, tag):

@@ -29,7 +29,7 @@
         {% endblock %}
 
         <footer>
-            {% if user == "" %}
+            {% if "user_id" not in session %}
                 <a class="a-none login-link" href="{{ url_for('login') }}">
                     <span class="red">Login</span>
                     <span> & </span>

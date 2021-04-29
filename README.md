@@ -81,5 +81,7 @@ I have asked for my friends opinion on the site. I have shown them the site and 
 
 I have gone from the original model of the wireframe in some locations.
 
+I have set up this GitHub repository online and 
+
 <h2>Bibliography</h2>
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be layed out.
