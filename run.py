@@ -2,8 +2,10 @@ import os
 import json
 from flask import (
     Flask, render_template, request, session, g
-)
-from flask_login import LoginManager, login_user, logout_user, current_user
+    )
+from flask_login import (
+    LoginManager, login_user, logout_user, current_user
+    )
 from model import User
 
 app = Flask(__name__)
