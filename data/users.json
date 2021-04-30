@@ -12,7 +12,8 @@
          "Super Mario 64",
          "Bioshock",
          "Super Mario Galaxy",
-         "Bioshock 2"
+         "Bioshock 2",
+         "bioshock_2"
       ],
       "comment_title": [
          "Super Mario Galaxy",
@@ -23,6 +24,7 @@
          "My opinion on this game",
          "Bioshock",
          "This is an amazing experience",
+         "Bioshock 2",
          "Bioshock 2"
       ],
       "comment_tag": [
@@ -34,7 +36,8 @@
          "general",
          "page",
          "general",
-         "page"
+         "page",
+         "general"
       ],
       "comment": [
          "Another Mario adventure on which you go into space and have a new galactic adventure, with brand new companions. You will help Rosalina though a series of amazing adventures thoughout a series of amazing locations with clever and interesting features and controlls. This has an amazing story and a clever use of the Wii Motion Control features.",
@@ -45,8 +48,9 @@
          "The thing is the game is really amazing as a child you enjoy the adventures and even as an adult. Theirs issues with the controller on the original 64 version but that still doesnt mean that this game is amazing. I love the music even to this day and on older consoles the music was one of the little things that made you really feel happy to play.",
          "This is a great game which takes you though a series of different locations. This is based around the idea of a man creating a new world which takes key parts of socialism and capitalism and gives more to the workers without restrictions.",
          "This is one of the unique mario games which is brilliant as it takes you into space and on an adventure to see different planets and uses a series of cool and interesting function and features.",
-         "This is the second game of the Bioshock game where you are within a moral dilema and need to save a series of girls called \"little girls\" which are in need of your help. You are in the same location and must seek answers to a new question."
+         "This is the second game of the Bioshock game where you are within a moral dilema and need to save a series of girls called \"little girls\" which are in need of your help. You are in the same location and must seek answers to a new question.",
+         "This is a great game"
       ],
-      "num_comments": 9
+      "num_comments": 10
    }
 ]

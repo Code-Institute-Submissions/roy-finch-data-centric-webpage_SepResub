@@ -101,11 +101,19 @@
       "details": "This is the second game of the Bioshock game where you are within a moral dilema and need to save a series of girls called \"little girls\" which are in need of your help. You are in the same location and must seek answers to a new question.",
       "link": "bioshock_2",
       "game_title": [],
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "author": [],
-      "num_comments": 0,
+      "comment_title": [
+         "Bioshock 2"
+      ],
+      "comment_tag": [
+         "general"
+      ],
+      "comment": [
+         "This is a great game"
+      ],
+      "author": [
+         "warr"
+      ],
+      "num_comments": 1,
       "page_creater": "warr"
    }
 ]

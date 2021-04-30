@@ -19,7 +19,7 @@
         </header>
         {% for tag in user.comment_tag %}
             {% if tag == "page" %}
-                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] or user.comment_tag[loop.index-2] != user.comment_tag[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
                             {{ user.comment_title[loop.index-1] }}
@@ -43,7 +43,7 @@
         </header>
         {% for tag in user.comment_tag %}
             {% if tag == "guide" %}
-                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] or user.comment_tag[loop.index-2] != user.comment_tag[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
                             {{ user.comment_title[loop.index-1] }}
@@ -67,7 +67,7 @@
         </header>
         {% for tag in user.comment_tag %}
             {% if tag == "trivia" %}
-                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] or user.comment_tag[loop.index-2] != user.comment_tag[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
                             {{ user.comment_title[loop.index-1] }}
@@ -91,7 +91,7 @@
         </header>
         {% for tag in user.comment_tag %}
             {% if tag == "glitch" %}
-                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] or user.comment_tag[loop.index-2] != user.comment_tag[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
                             {{ user.comment_title[loop.index-1] }}
@@ -115,7 +115,7 @@
         </header>
         {% for tag in user.comment_tag %}
             {% if tag == "general" %}
-                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] %}
+                {% if loop.index-1 == 0 or user.comment_title[loop.index-2] != user.comment_title[loop.index-1] or user.comment_tag[loop.index-2] != user.comment_tag[loop.index-1] %}
                     <details class="comment bottom">
                         <summary>
                             {{ user.comment_title[loop.index-1] }}
