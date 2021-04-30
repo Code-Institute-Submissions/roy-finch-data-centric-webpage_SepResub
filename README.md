@@ -95,6 +95,8 @@ I have changed a few things about my webpage as I have had to change the website
 
 I have also deleted the assets that are not used on my website as they dont suit the use of them now. I will keep the site the way it is now as it still presents everything that I want to present on the site, and correctly keeps the site true to how I want it took look and function.
 
+If you would like to test my website from the point of view of a person who has already added a few comments and pages you may use my account with the details, warr, test, which is the username and password respectfully.
+
 <h2>Bibliography</h2>
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be layed out.
 Heroku - https://dashboard.heroku.com/apps - used this to upload and publish the website to as it supports the python language and python applications.
