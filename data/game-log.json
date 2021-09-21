@@ -19,7 +19,9 @@
       ],
       "num_comments": 1,
       "page_creater": "warr",
-      "rr_tag_comment": []
+      "rr_tag_comment": [
+         0
+      ]
    },
    {
       "name": "Super Mario Sunshine",
@@ -63,7 +65,12 @@
          "warr"
       ],
       "num_comments": 3,
-      "page_creater": "warr"
+      "page_creater": "warr",
+      "rr_tag_comment": [
+         0,
+         1,
+         2
+      ]
    },
    {
       "name": "Super Mario Kart",
@@ -87,11 +94,19 @@
       "details": "This is a great game which takes you though a series of different locations. This is based around the idea of a man creating a new world which takes key parts of socialism and capitalism and gives more to the workers without restrictions.",
       "link": "bioshock",
       "game_title": [],
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "author": [],
-      "num_comments": 0,
+      "comment_title": [
+         "General Info"
+      ],
+      "comment_tag": [
+         "general"
+      ],
+      "comment": [
+         "This game is a wonderful thing to play, and has a beautiful story.\r\n"
+      ],
+      "author": [
+         "warr"
+      ],
+      "num_comments": 1,
       "page_creater": "warr"
    },
    {
@@ -114,6 +129,9 @@
          "warr"
       ],
       "num_comments": 1,
-      "page_creater": "warr"
+      "page_creater": "warr",
+      "rr_tag_comment": [
+         0
+      ]
    }
 ]

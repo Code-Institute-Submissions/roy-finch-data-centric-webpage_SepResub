@@ -52,7 +52,7 @@ def account():
         user = userID(current_user)
         return render_template("account.html", user=user)
     else:
-        redirect({{url_for("login")}})
+        redirect({{url_for("index")}})
 
 
 @app.route("/singin", methods=["POST"])
@@ -212,7 +212,8 @@ def post():
                     "author": [
                     ],
                     "num_comments": 0,
-                    "page_creater": userID(current_user)["username"]
+                    "page_creater": userID(current_user)["username"],
+                    "rr_tag_comment": []
                 }
                 # Add the formated var to the gamelog.
                 game_log.append(new_log)
@@ -284,6 +285,8 @@ def result(query):
 
 @app.route("/<game_name>", methods=["POST", "GET"])
 def page_load(game_name):
+    tags = ["guide", "trivia", "glitch", "general"]
+    friendly = ["Guides", "Trivia", "Glitches", "General"]
     # Function to load the webpage with the game name.
     # When request method is POST
     if request.method == "POST":
@@ -330,10 +333,10 @@ def page_load(game_name):
     if current_user is not None and userID(current_user) is not False:
         user = userID(current_user)["username"]
         return render_template(
-            "page_template.html", game=game, red=red, blue=blue, user=user)
+            "page_template.html", game=game, red=red, blue=blue, user=user, tag=tags, friendly=friendly)
     else:
         return render_template(
-            "page_template.html", game=game, red=red, blue=blue, user="")
+            "page_template.html", game=game, red=red, blue=blue, user="", tag=tags, friendly=friendly)
 
 
 def commentWrite(game_name, usern, title, comment, tag):
@@ -419,4 +422,4 @@ if __name__ == "__main__":
         host=os.environ.get(
             "IP", "0.0.0.0"), port=int(
                 os.environ.get(
-                    "PORT", "5000")))
+                    "PORT", "5000")), debug=True)

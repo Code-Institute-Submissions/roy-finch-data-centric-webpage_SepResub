@@ -13,7 +13,8 @@
          "Bioshock",
          "Super Mario Galaxy",
          "Bioshock 2",
-         "bioshock_2"
+         "Bioshock 2",
+         "Bioshock"
       ],
       "comment_title": [
          "Super Mario Galaxy",
@@ -25,7 +26,8 @@
          "Bioshock",
          "This is an amazing experience",
          "Bioshock 2",
-         "Bioshock 2"
+         "Bioshock 2",
+         "General Info"
       ],
       "comment_tag": [
          "page",
@@ -37,6 +39,7 @@
          "page",
          "general",
          "page",
+         "general",
          "general"
       ],
       "comment": [
@@ -49,8 +52,29 @@
          "This is a great game which takes you though a series of different locations. This is based around the idea of a man creating a new world which takes key parts of socialism and capitalism and gives more to the workers without restrictions.",
          "This is one of the unique mario games which is brilliant as it takes you into space and on an adventure to see different planets and uses a series of cool and interesting function and features.",
          "This is the second game of the Bioshock game where you are within a moral dilema and need to save a series of girls called \"little girls\" which are in need of your help. You are in the same location and must seek answers to a new question.",
-         "This is a great game"
+         "This is a great game",
+         "This game is a wonderful thing to play, and has a beautiful story.\r\n"
       ],
-      "num_comments": 10
+      "num_comments": 11
+   },
+   {
+      "id": 1,
+      "username": "warrr",
+      "passw": "adminretro",
+      "game_title": [],
+      "comment_title": [],
+      "comment_tag": [],
+      "comment": [],
+      "num_comments": 0
+   },
+   {
+      "id": 2,
+      "username": "warrrr",
+      "passw": "admin",
+      "game_title": [],
+      "comment_title": [],
+      "comment_tag": [],
+      "comment": [],
+      "num_comments": 0
    }
 ]

@@ -1,11 +1,11 @@
-<h1>Data Centric Website Development</h1>
+# Data Centric Website Development
 Within this project I was instructed to create a website that I would like to create from an idea that I have had. I was instructed to create a website that puts use to the python and flask server language and allows for me to create a forwarding frame which would create and structure out a website which can be used within a server instance. I have used this to create something that I had widely wanted to create from the start. I was instructed to use some other langauges as well such as HTML CSS and Javascript. I have chosen to only use the CSS and HTML languages though as the functionality of my webpage and the practicality of the website was created with just the use of what I have chosen to do.
 
 I have selected to create a project with rules set upon myself as well. I want to create a website that holds a series of different pieces of information that are published by a community just like a forum page. I want to be able to allow for a user to create a page about a game and add a series of different types of information to the pages to inform others of what they have done, or just how to play a game. I have selected to not allow the use of images and videos. Although they can help a user be able to understand the actual information better. I wanted to stick to just text as this is intended to be a written form. I am aware that the inclusion of images and videos would help users and views understand the information better but yet would begin to become more complicated and really change my idea and opinion to far past what I want to do.
 
 I wanted to also include a form of accounts and make it so that a user only needs a username and password. I am aware of the security issues that will arise but I have made it so that on the website content which is given a blue tag has been given a seal to say that this information is better than others that you may find. I understand that I have also not included the ability for a user to delete or edit a comment but will not allow the user to have such a strong control of the site. The reason behind not allowing a user to edit a comment is so that they may not change the content of a comment that has been given a blue seal. This will allow for users and views to wrongly abuse power and also would affect the use of my site further. I want to create a site where its content is not completely monitored but yet you can see a series of comments within different areas that you may view comments which are controller or authorized.
 
-<h2>Introduction</h2>
+## Introduction
 Within this project which I widely plan out through a series of different ways I will begin by creating an idea that uses the rules and ideas that are given to me by both the course and myself.
 
 I am already thinking of an idea of which I would like to create the next situation is to begin to find out how to produce and create this idea in a practical project. I would like for a site that can both create and post forms and also allow for people to view the site both as a users or as a viewer. I would like to keep in mind that people in my life are unable to deal with passwords, usernames and emails so I have chosen to make the site simple but effective. I want to make sure that all are welcome and all can use this site no matter what maybe the situation. I also want to make the site setup so that a user can create a post but at the same time can not edit it or effect it, as I want to publish the content and decide for myself if a comment is suppose to stay or leave the site. Within practicality there would be a few features which I would also add but due to the small level of use to this site these changes are possibly unnecessary.
@@ -22,7 +22,7 @@ Within this wireframe I am thinking about a few ideas about the idea of the use 
 
 Within the wireframe I tried to present the navigation to the page and believe that it doesn't properly betray how to use the site. You can use the search bar which is in the navigation bar to access a results page. The results will contain a series of names which have hyperlinks to connect to the respected page. Once on the page you can see comments which are split up into different sections. You can always access the homepage from the use of the logo and title. You can also use the login button to access the login page and then the login button becomes an account or signout afterwards. On the results page you will have the ability to create a page with the name of a game which is not included in the results page or data base. Signout will go back to the homepage and the account link will take the user to the account page. This is roughly how the navigation system will work on my website.
 
-<h2>Initial Concept</h2>
+## Initial Concept
 I want to create a site about games, which will have the user be able to write about a game of there choice. I also want to make sure that the user or viewer can also read a comment no matter what. I want to make sure that a user can possibly create a page if the game is not included.
 
 Within producing and creating comments I want the user to be able to tell the site what type of comment they are producing. Initially, I had no intension of adding a general tag but shortly after creating the site and creating some different things I had added that to help users to just produce what they would like and if it didn't fall into the tags that where there they could also just still have their comment or voice heard on my site. I thought that this would give the user an ability to state how they feel about a game and properly show to others what they feel.
@@ -37,7 +37,9 @@ Within creating the name, I had settled for a name which used a starting word wh
 
 I wanted to also create a search function which will use the colour blue just as though it is a hyperlink to present the user with an understanding that it is just a standard search engine similar to google or other search engine. As I want this site to be simple and easily understood by others I tried to use the colours similar to other websites. This conventional use would be to just try and show the users a simple but effective site which offers them a similarities to other locations they may have seen this coloured theme. These colours need to be included throughout to hold up the theme in all of the webpages I have created.
 
-<h2>Development</h2>
+## User Stories
+
+## Development
 Within creating this site, I had used a series of drawn plans to give me understanding on what I wanted to make from the beginning I thought about the idea of creating a page where the nav and footer are dominant and always visible. Within the plan I wanted a logo and search bar within the nav bar and didn't want a series of bare hyperlinks. Also, within the footer I wanted to just have a simple navigation to be able to access different pages link accounts or login. I selected to try and create a footer which contains a login which becomes an account page when the user has logged in. The navigation bar on the other hand, I have added a logo, which may not be self explanatory. So, I also included the name of the site and the search bar with a custom icon which followed my colour code.
 
 I wanted to try and make the website as simple as I can but still present the site in the way I want to. I believe I have managed to achieve that by these plans to set the site up as I have. The colours of the site also work well with the structure and I believe the site now has the identity which I want to give it.
@@ -61,7 +63,7 @@ Within the first data file, the game-log.json file which is the file that is use
 
 I would like to continue to use these data formats the these .json files to perform these tasks on my site. I feel as though all the tasks I have set on this site are completed with the use of these data files.
 
-<h2>During Development</h2>
+## During Development
 Whilst creating this website there was many changes which I had done to this site to make it truer to the idea that I had. I wanted to change the way on which comments were presented. The comments can now be hidden or shown using the summary and details tag. This was in an effort to condense pages and comments and also allow for people to find comments with titles that may be more suitable and prevents people from seeing random pieces of content which could affect the user experience.
 
 I also added a feature to do with something called a blue tag or RR tag which will be presented as a simple blue mark aside a comment. This is to show the user that the comment has been checked and is seen by me and my site as a comment which is suitable for everyone to read. I do this in an effort to show that some comments are better than other comments within the website. This will show that I take a sense of pride within these comments and would like to priorities these over other comments.
@@ -78,7 +80,7 @@ The structure of my code has been created as what I feel is the best layout. Rou
 
 I feel as though the site is self-explanatary and contains a homepage which includes information about how the user or viewer can use my site to better themselves.
 
-<h2>Finalizing</h2>
+## Finalizing
 I have asked for my friends' opinion on the site. I have shown them the site and they have discussed with me that the idea, layout and structure suit what I am after. I truly agree with this opinion on how the site is and how it works.
 
 I have gone from the original model of the wireframe in some locations.
@@ -97,6 +99,6 @@ I have also deleted the assets that are not used on my website as they don't sui
 
 If you would like to test my website from the point of view of a person who has already added a few comments and pages you may use my account with the details, warr, test, which is the username and password respectfully.
 
-<h2>Bibliography</h2>
+## Bibliography
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be laid out.
 Heroku - https://dashboard.heroku.com/apps - used this to upload and publish the website to as it supports the python language and python applications.
