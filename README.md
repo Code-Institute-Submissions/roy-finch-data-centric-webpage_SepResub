@@ -107,6 +107,7 @@ If you would like to test my website from the point of view of a person who has 
 I have chosen to change the way on which the login page looks as the I want the page to be simplier. I want to make sure that a user can sign up and login using just a username and a password, this does make the website a little insecure and needs to be more revised, if placed within a practical instance but for this simple form board I feel as though the website is just a simple form board where an account can allow a user to create a comment on a board.
 
 ![Previous Login Page Design](static/img/wireframe.PNG)
+This is the wireframe of the login page and is the original design of the wireframe.
 
 ![Current Design on the login webpage](static/img/login_page.PNG)
 As you can see I made it so that its the same form with two different submittion buttons, and I am able to allow the user to fill in the form and then just submit using the corrisponding button. I find it annoying that some sites takes the users to two different areas on the site for either login or signup. I wanted to make sure that its just a simple layout.
@@ -116,6 +117,11 @@ Within the results page it has a difference deppending on whether you are signed
 
 ![Current Design on the Templates page](static/img/retro_page_template.PNG)
 Within the final design of the templates page you can do different things with and without an account. On the site the comments that are with a blue mark on the left are something that have an rr mark which shows that I have approved the comment on the website and that they are recommending by the site for the user to view them. With or without an account you can still access the data on the site, whilst if you make an account you can also make comments on the site. I have added the ability for a comment to come with a username of the creator. This is so that a user can see who commented. At a more practical instance the way on which the comments would be organised would slightly differ but within this instance the site can deal with small amounts of comments, along with some form of reply system.
+
+![Example of comments that are given rr tag and not.](static/img/rr_tag.PNG)
+This is an example of the rr tag it gives the comment a nice blue colour on it so that the it stands out. This doesn't organise the comments by this feature but makes the comments stand out.
+
+I have changed a few things to fix some issues. Within the site, accounts where accessed incorrectly but I have altered ids and made it work better now. I have also added a solutions to the accounts page saying that the comment was made on the link game_name not the actual Game Name. I have made some alterations to make it look better.
 
 ## Bibliography
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be laid out.
