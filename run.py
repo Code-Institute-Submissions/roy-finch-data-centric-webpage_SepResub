@@ -42,7 +42,7 @@ def login():
         return render_template(
             "login.html", error_message=g_error_msg)
     else:
-        return redirect({{url_for("index")}})
+        return redirect("/account")
 
 
 @app.route("/account")
@@ -120,7 +120,7 @@ def signin():
                 # Initialize the other arrays and variabels
                 # to edit them later.
                 user_id = {
-                    "id": len(file),
+                    "id": len(file)+1,
                     "username": usern,
                     "passw": passw,
                     "game_title": [
@@ -145,7 +145,7 @@ def signin():
                     file.append(user_id)
                     json.dump(file, users, indent=3)
             # Return to the index after they are added to the user file.
-            return redirect({{url_for("index")}})
+            return index()
         else:
             # Set up the g_error_msg as global and output it for the
             # login page to use it.
@@ -351,6 +351,7 @@ def commentWrite(game_name, usern, title, comment, tag):
                 # Check if the comment isn't already added by mistake
                 if comment not in game_log[i]["comment"]:
                     # Add the informaion that is required
+                    name = game_log[i]["name"]
                     game_log[i]["comment_title"].append(title)
                     game_log[i]["comment_tag"].append(tag)
                     game_log[i]["comment"].append(comment)
@@ -364,7 +365,7 @@ def commentWrite(game_name, usern, title, comment, tag):
     # Within this function do the same as the previous function but
     # Add the comment to the users log so they can see what they have
     # added to the site.
-    creditor(game_name, usern, title, comment, tag)
+    creditor(name, usern, title, comment, tag)
 
 
 def userID(user_id):

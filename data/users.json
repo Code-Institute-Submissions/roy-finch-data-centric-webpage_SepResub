@@ -58,7 +58,7 @@
       "num_comments": 11
    },
    {
-      "id": 1,
+      "id": 2,
       "username": "warrr",
       "passw": "adminretro",
       "game_title": [],
@@ -68,13 +68,25 @@
       "num_comments": 0
    },
    {
-      "id": 2,
-      "username": "warrrr",
-      "passw": "admin",
-      "game_title": [],
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "num_comments": 0
+      "id": 3,
+      "username": "testuser",
+      "passw": "Magic2010",
+      "game_title": [
+         "Bioshock 2",
+         "Super Mario Sunshine"
+      ],
+      "comment_title": [
+         "BIOSHOCK 2",
+         "Mario Sunshine - Mama Peach"
+      ],
+      "comment_tag": [
+         "general",
+         "trivia"
+      ],
+      "comment": [
+         "This game is awesome",
+         "This is the only game where Princess Peach is mentions in a sense of being Bowser Jrs mother. They have a lovely ending and the topic is only brushed upon but is a strange place within a Mario game."
+      ],
+      "num_comments": 2
    }
 ]

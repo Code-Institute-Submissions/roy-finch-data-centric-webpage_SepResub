@@ -11,7 +11,8 @@
         <p>This is your account page where you can view comments that you have made on previous threads.</p>
     </header>
 </section>
-{% if "page" in user.comment_tag %}
+{% if user.comment_tag|length > 0 %}
+    {% if "page" in user.comment_tag %}
     <section>
         <header>
             <h4>Pages Started</h4>
@@ -34,8 +35,8 @@
             {% endif %}
         {% endfor %}
     </section>
-{% endif %}
-{% if "guide" in user.comment_tag %}
+    {% endif %}
+    {% if "guide" in user.comment_tag %}
     <section>
         <header>
             <h4>Guides</h4>
@@ -58,8 +59,8 @@
             {% endif %}
         {% endfor %}
     </section>
-{% endif %}
-{% if "trivia" in user.comment_tag %}
+    {% endif %}
+    {% if "trivia" in user.comment_tag %}
     <section>
         <header>
             <h4>Trivia</h4>
@@ -82,8 +83,8 @@
             {% endif %}
         {% endfor %}
     </section>
-{% endif %}
-{% if "glitch" in user.comment_tag %}
+    {% endif %}
+    {% if "glitch" in user.comment_tag %}
     <section>
         <header>
             <h4>Glitches</h4>
@@ -106,8 +107,8 @@
             {% endif %}
         {% endfor %}
     </section>
-{% endif %}
-{% if "general" in user.comment_tag %}
+    {% endif %}
+    {% if "general" in user.comment_tag %}
     <section>
         <header>
             <h4>General</h4>
@@ -130,5 +131,6 @@
             {% endif %}
         {% endfor %}
     </section>
+    {% endif %}
 {% endif %}
 {% endblock %}

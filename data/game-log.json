@@ -29,11 +29,19 @@
       "console": "Gamecube",
       "details": "Another Mario adventure which is on the Gamecube and has an amazing story and adventure aspect for the time. It has such a wonderful concept of the use of F.L.U.I.D your companion which becomes fundimental to the gameplay and controls to the game. You go on a vacation after the previous games and once you reach the Isle yourself in find trouble.",
       "link": "super_mario_sunshine",
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "author": [],
-      "num_comments": 0,
+      "comment_title": [
+         "Mario Sunshine - Mama Peach"
+      ],
+      "comment_tag": [
+         "trivia"
+      ],
+      "comment": [
+         "This is the only game where Princess Peach is mentions in a sense of being Bowser Jrs mother. They have a lovely ending and the topic is only brushed upon but is a strange place within a Mario game."
+      ],
+      "author": [
+         "testuser"
+      ],
+      "num_comments": 1,
       "page_creater": "warr",
       "rr_tag_comment": []
    },
@@ -117,18 +125,22 @@
       "link": "bioshock_2",
       "game_title": [],
       "comment_title": [
-         "Bioshock 2"
+         "Bioshock 2",
+         "BIOSHOCK 2"
       ],
       "comment_tag": [
+         "general",
          "general"
       ],
       "comment": [
-         "This is a great game"
+         "This is a great game",
+         "This game is awesome"
       ],
       "author": [
-         "warr"
+         "warr",
+         "testuser"
       ],
-      "num_comments": 1,
+      "num_comments": 2,
       "page_creater": "warr",
       "rr_tag_comment": [
          0
