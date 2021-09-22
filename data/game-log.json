@@ -87,11 +87,19 @@
       "details": "This was one of the first games of the Mario Kart franchise, and even though this game is quite old and dated, it bring an amazing and serious series of different and interesting functions.",
       "link": "super_mario_kart",
       "game_title": [],
-      "comment_title": [],
-      "comment_tag": [],
-      "comment": [],
-      "author": [],
-      "num_comments": 0,
+      "comment_title": [
+         "Super Mario Kart is different"
+      ],
+      "comment_tag": [
+         "trivia"
+      ],
+      "comment": [
+         "This is one of the first Mario Kart games that involves amazing features to different things within the game. You have a burn-out effect or a slippy effect which do the same thing to the cart, but these features are when you try to drift and over do it and if you slip on a banana. You don't just lose control when slipping on a banana though and instead you must try and prevent yourself from slipping around."
+      ],
+      "author": [
+         "warr"
+      ],
+      "num_comments": 1,
       "page_creater": "warr",
       "rr_tag_comment": []
    },
@@ -115,7 +123,9 @@
          "warr"
       ],
       "num_comments": 1,
-      "page_creater": "warr"
+      "page_creater": "warr",
+      "rr_tag_comment": [
+      ]
    },
    {
       "name": "Bioshock 2",
