@@ -45,7 +45,7 @@
     {% endif %}
     {% for i in game %}
         {% if t == game.comment_tag[loop.index-1] %}
-            {% if loop.index-1 == 0 or game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1] or (loop.index-2 in game.rr_tag_comment and loop.index-1 not in game.rr_tag_comment) or (loop.index-1 in game.rr_tag_comment and loop.index-2 not in game.rr_tag_comment) %}
+            {% if loop.index-1 == 0 or game.comment_tag[loop.index-2] != game.comment_tag[loop.index-1] or game.comment_title[loop.index-2] != game.comment_title[loop.index-1] or game.author[loop.index-2] != game.author[loop.index-1] or (loop.index-2 in game.rr_tag_comment and loop.index-1 not in game.rr_tag_comment) or (loop.index-1 in game.rr_tag_comment and loop.index-2 not in game.rr_tag_comment) %}
                 {% if loop.index-1 in game.rr_tag_comment %}
                     <details class="comment rr-tag">
                         <summary>
