@@ -68,7 +68,7 @@ Within the first data file, the game-log.json file which is the file that is use
 
 I would like to continue to use these data formats the these .json files to perform these tasks on my site. I feel as though all the tasks I have set on this site are completed with the use of these data files.
 
-## During Development
+## Testing
 Whilst creating this website there was many changes which I had done to this site to make it truer to the idea that I had. I wanted to change the way on which comments were presented. The comments can now be hidden or shown using the summary and details tag. This was in an effort to condense pages and comments and also allow for people to find comments with titles that may be more suitable and prevents people from seeing random pieces of content which could affect the user experience.
 
 I also added a feature to do with something called a blue tag or RR tag which will be presented as a simple blue mark aside a comment. This is to show the user that the comment has been checked and is seen by me and my site as a comment which is suitable for everyone to read. I do this in an effort to show that some comments are better than other comments within the website. This will show that I take a sense of pride within these comments and would like to priorities these over other comments.
@@ -84,6 +84,42 @@ I had a moment where I had disabled the account page as this was due to the idea
 The structure of my code has been created as what I feel is the best layout. Routing functions are first, then functions which have general uses and then finally the if launch statement was the final part of the script. I have also included comments within all of my files. The HTML and Python will both be given some comments to describe what I have intended to do.
 
 I feel as though the site is self-explanatary and contains a homepage which includes information about how the user or viewer can use my site to better themselves.
+
+Within creating this site I had many different issues whilst developing it. Whilst creating the site I had began out with the idea of creating the website where you can post a comment about a game and start providing other users with guides, trivia or just like to comment about a game. Within this site you would be able to just find solutions to games that your playing and be able to find help if you reqiure it.
+
+As I am new to using Flask, I had began to alter the layout of the files best suited by flask. I had made sure that the files where layed out as they are intended when using the Flask module.
+
+I had also, once the theme was figured out. I had changed the webpages to suit the Flask+Python modules and make sure they rendered as the modules required.
+
+Initially I always create a layout called, bare-bone, this is so that you can see each div container and see its interaction on the site, so you can properly adjust any of its settings or features. This is done by just simply adding a border around each item, standard of 1px solid black and if the theme requires it, then that would be removed afterwards. I went for the basic but effect theme on this site where the borders are used for style.
+
+I wanted to base the entire pages navigation of the search engine, this is so that the page looks very fundimental but highly functionaly.
+
+I had some issues with how to lay my data out within the two json files. I had many different ideas on how I wanted the data accessed and used. But settled for the layout that is currently in use. The other layouts where simple differences where I wouldn't include a tag, or an author, but I felt that the comments must be placed in some sort of order, and that the authors username must be displayed out of respect for the commenter. I had also changed the users data file so that it is used in a manour that is similar to the use of the game-log as they work hand in hand in some sections of the code. As both are adjusted when a user makes a comment so that the user can see there profile and look over the comments they have made.
+
+When creating the new data hierarchie I had noticed that I rendered pages for each tag, but rendered them even if the page had a comment under the tag, this was altered to make the page simplified.
+
+I had messed around with the theme a lot through out production until I settled for this basic but effective colour scheme, when creating the bits of red and blue colour on the site, I had felt that the site was overdoing it, and wanted to the make the colour feel wellplaced, and not just appear everywhere.
+
+I had messed around with how the search results page looked, I had made a few adjustements to what I felt should have been included. I wanted to display enough information that the user would be able to find the game they are looking for. These changes where with how its displayed, game name then details ect. I had wanted to go for a search engine type of theme. This would intail that the search results would be displayed, with a name, details and any other information that I wanted to include. Original this was a standin, but I used to just display the name of the game, but prefer the idea of showing the user the details and comment count, so they can see the activity within each page before pressing on them.
+
+I had issues with the search bar, I had made it so that it trys to find the pages that best match up with the users input. At first I struggled to make it work as it didn't provide me with the best result as I wanted. The website needs to have the search bar as thats the fundimental feature of the website. This feature needed to work as I intended for it to work. It would alter search results and provide very irregular and poor results for the site. I managed to make it work by running a python search for function where I can run through each page and find the onces that have the title that the user could have put in the search.
+
+I had issues with trying to create the login page as I wanted it. I had struggled to get it to work with one form and managed by setting the values of the individual buttons to be the same name but different values so that within the get. I could search for the users action they would like to do. Then going from this action, I could then do the corrosponding response.
+
+I had created two different version of the base.html, due to issues with the search form misfiring, so within pages, like the users account, I had removed the search bar. I had fixed the issues that it was having with misfiring but I had chosen to leave the pages that I had give the alt, as they where as that seems best fitting for the site. This was also on the login page. It was due to when a form was submitted that the search form would also submit as well.
+
+Before creating the accounts page, I had found the issues with the login system that I had created, and wanted to make sure they where changed before I had progressed any further. The accounts where being stored, used and accessed incorrecetly when I had made the var, so the login module of flask had fixed any issues with that.
+
+I have also simplified the code on the accounts page so that instead of having several for loops iterating similar information, just like on the page_templates, I had simplifed the code and send through two var lists to help with the for loop processing. I do not render, the rr-tags on this page, as the user and the game-log are seperate they may begin to become updated seperatly and the data which is stored on game-log is where the rr-tag token list is stored.
+
+I had throught of the rr-tag as a way of just simply displaying to the user that the comments in blue have been approved. The reason comments cant be altered is due to this feature. As I don't want a comment that has been approved to also then be altered to be inappropriete.
+
+Within the users template, I had created a very strong and linear code that was too large for the site in my opinion. So I created two variables to be fed to the page on creation that could be used by Flask to better render the site. I had change these 8 for statements into just 3 for statements that iterate through these list vars that are fed from python to flask then, iterating over the data I would like to display on the website. This was done as there was also some issues with the programming and it ment that the comments that had been given an rr-token where incorrectly being displayed. They would not appear as a summary or would actual appear as two summaries. This was due to the summary initialiser part of the for where it was misreading the situation, and was either firing several times or not firing at all. There was the same issue with the if statement that delt with finializing and finishing the summary tag. Although the html code doesn't look plesant, this was something that I wanted to display in that way. As the summary tag gave me a simplistic comment section, where I can just display the title and author, so that a user hasn't got the read any open comments and can look around for what they may need.
+
+At one point when creating the users, I had created them incorrectly. I had used a local variable that would be set to the users name. But my friend allowed me to test it from two sides. We where able to find that sometimes this would confuse the entire website and sometimes it would mean that we would trade accounts. Wierd as that may sound I had then began to use the flask_login module to help me create sessions and also allow for the me to add multipule users at once. This was an easy way to include this module and not alter my programming too much. As I have tested reasently the only issues that followed where simple ones which ment that the users id would be wrongly assigned. This was fixed by fixing the ids in the save file and altering how an ID is assigned upon creating an account. This took some time to create but once I had done the neccessarily adjustments to the db I had fixed the issues. Along with that the login and signup was not working correctly as well. So I changed a few things in the code so that people can sign in and signup and the site would respond correctly.
+
+I had altered the run.py file to make sure that the file was in the correct mode after development so none of the debug logs where externally accessable.
 
 ## Finalizing
 I have asked for my friends' opinion on the site. I have shown them the site and they have discussed with me that the idea, layout and structure suit what I am after. I truly agree with this opinion on how the site is and how it works.
@@ -109,11 +145,14 @@ I have chosen to change the way on which the login page looks as the I want the 
 ![Previous Login Page Design](static/img/wireframe.PNG)
 This is the wireframe of the login page and is the original design of the wireframe.
 
+![This is the final homepage.](static/img/homepage.PNG)
+On the homepage, I have added a large portion of information to talk about the site and what the site does and how to use it.
+
 ![Current Design on the login webpage](static/img/login_page.PNG)
 As you can see I made it so that its the same form with two different submittion buttons, and I am able to allow the user to fill in the form and then just submit using the corrisponding button. I find it annoying that some sites takes the users to two different areas on the site for either login or signup. I wanted to make sure that its just a simple layout.
 
 ![Current Design on the Results page](static/img/retro_results.PNG)
-Within the results page it has a difference deppending on whether you are signed in and not signed in. The account access can allow you to create a page. Whilst without the account you can still access the site for information on the game and be able to try and find information that may help you get through a difficult part in a game. Within each page you can submit some form of information with something nicknamed a tag. Tags help with sorting.
+Within the results page it has a difference deppending on whether you are signed in and not signed in. The account access can allow you to create a page. Whilst without the account you can still access the site for information on the game and be able to try and find information that may help you get through a difficult part in a game. Within each page you can submit some form of information with something nicknamed a tag. Tags help with sorting. I had messed around with many different ideas, but I feel as though this idea, was best suited as it shows the user another information about the game so they can have a well informed decision and along with that they can also see the activity on the page, with a comment counter asside each url.
 
 ![Current Design on the Templates page](static/img/retro_page_template.PNG)
 Within the final design of the templates page you can do different things with and without an account. On the site the comments that are with a blue mark on the left are something that have an rr mark which shows that I have approved the comment on the website and that they are recommending by the site for the user to view them. With or without an account you can still access the data on the site, whilst if you make an account you can also make comments on the site. I have added the ability for a comment to come with a username of the creator. This is so that a user can see who commented. At a more practical instance the way on which the comments would be organised would slightly differ but within this instance the site can deal with small amounts of comments, along with some form of reply system.
@@ -122,6 +161,15 @@ Within the final design of the templates page you can do different things with a
 This is an example of the rr tag it gives the comment a nice blue colour on it so that the it stands out. This doesn't organise the comments by this feature but makes the comments stand out.
 
 I have changed a few things to fix some issues. Within the site, accounts where accessed incorrectly but I have altered ids and made it work better now. I have also added a solutions to the accounts page saying that the comment was made on the link game_name not the actual Game Name. I have made some alterations to make it look better.
+
+![Example of the accounts page](static/img/account.PNG)
+This is the accounts page, this shows the user what they have commented on and which pages the comments have been done on. This allows for a user to keep a history of the past comments.
+
+![Example of the add_comment form. ](static/img/add_comment.PNG)
+This is the form to be able to add a comment to a page, this form has a simple layout where the user choses a title, a tag and then also add the comment they'd like to add.
+
+![Example of the add_page form.](static/img/add_page.PNG)
+This is the form for the add_page form this allows them to create a webpage with a game name, detail and a console they are on. This allows for them to be able to create a page that doesn't exist and be able to build on a page they have created.
 
 ## Bibliography
 Wireframe Website - https://miro.com/ - used to create the wireframe for my website and gives me the understanding of how the website should be laid out.

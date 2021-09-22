@@ -48,9 +48,14 @@ def login():
 @app.route("/account")
 def account():
     # This gets the user info and the renders the account page.
+    # These are simple variable lists, that contain info
+    # To pass through to the html base, for easier
+    # loading
+    tags = ["page", "guide", "trivia", "glitch", "general"]
+    friendly = ["Pages", "Guides", "Trivia", "Glitches", "General"]
     if current_user is not None:
         user = userID(current_user)
-        return render_template("account.html", user=user)
+        return render_template("account.html", user=user, tag=tags, friendly=friendly)
     else:
         redirect({{url_for("index")}})
 
