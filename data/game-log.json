@@ -124,8 +124,7 @@
       ],
       "num_comments": 1,
       "page_creater": "warr",
-      "rr_tag_comment": [
-      ]
+      "rr_tag_comment": []
    },
    {
       "name": "Bioshock 2",
@@ -155,5 +154,24 @@
       "rr_tag_comment": [
          0
       ]
+   },
+   {
+      "name": "Mass Effect",
+      "series": "Mass Effect",
+      "console": "Xbox 360",
+      "details": "Within this game, you are on an adventure through the galaxies and space. You must help planets and other species of aliens out, you can create a crew and take on anything that maybe waiting for you in the deep black of space. A wonderful shooting, rpg type of game.",
+      "link": "mass_effect",
+      "game_title": [],
+      "comment_title": [
+      ],
+      "comment_tag": [
+      ],
+      "comment": [
+      ],
+      "author": [
+      ],
+      "num_comments": 1,
+      "page_creater": "warr",
+      "rr_tag_comment": []
    }
 ]

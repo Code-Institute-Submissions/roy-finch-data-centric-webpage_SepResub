@@ -12,12 +12,21 @@
     </header>
 
     {% for game in results %}
-        <div class="indent">
-            <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a><span class="right">{{ game.num_comments }} Comments</span>
+        {% if game.name == "seperator"%}
+            {% if results|length != loop.index and results[loop.index]["name"] != "seperator" %}
+                <div class="indent">
+                    <p>These are the results with the search entry "{{ query }}" within the {{ game.series }}.</p>
+                </div>
+                <br>
+            {% endif %}
+        {% else %}
+            <div class="indent">
+                <a class="a-none blue" href="{{ game.link }}">{{game.name}}</a><span class="right">{{ game.num_comments }} Comments</span>
+                <br>
+                <span>{{game.details}}</span>
+            </div>
             <br>
-            <span>{{game.details}}</span>
-        </div>
-        <br>
+        {% endif %}
     {% endfor %}
 
     <br>

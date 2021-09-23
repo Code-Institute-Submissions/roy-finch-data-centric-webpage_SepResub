@@ -230,7 +230,7 @@ def post():
                 creditor(title, userID(
                     current_user)["username"], title, detail, "page")
         # Return the homepage once the games added
-        return redirect({{url_for("index")}})
+        return index()
 
 
 @app.route("/search", methods=["POST"])
@@ -263,9 +263,23 @@ def result(query):
         # which has been converted using json load.
         file = json.load(games_data)
         # Start a for to compare the items in the file
+        results.append({
+            "name": "seperator",
+            "series": "title"
+        })
         for i in range(len(file)):
             # If the query and the name of the game is equal continue
             if query.lower() in file[i]["name"].lower():
+                # Add this game entry to the file array to export it
+                # to the page.
+                results.append(file[i])
+        results.append({
+            "name": "seperator",
+            "series": "description"
+        })
+        for i in range(len(file)):
+            # If the query and the name of the game is equal continue
+            if (query.lower() in file[i]["console"].lower() or query.lower() in file[i]["details"].lower()) and file[i] not in results:
                 # Add this game entry to the file array to export it
                 # to the page.
                 results.append(file[i])

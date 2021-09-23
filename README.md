@@ -44,6 +44,8 @@ Some users would like an ability to look for some more information on the websit
 
 Some user would like to create an account. Now due to the nature of my site, I made it so people can create comments or pages on sites. I wanted to make sure that when a user creates a comment or page they can actual see the comments on the account page. This is so they can see what they have managed to do.
 
+Some users would like a smart search system that is able to provide the user with several different types of responses so they have the chance to find the result either though that what they entered may not find the page they want. I made the search engine, look at the search enquire against the game title, and then against, the console and game details. This would be split into two different searches and they would be able to look at the results they have been given.
+
 ## Development
 Within creating this site, I had used a series of drawn plans to give me understanding on what I wanted to make from the beginning I thought about the idea of creating a page where the nav and footer are dominant and always visible. Within the plan I wanted a logo and search bar within the nav bar and didn't want a series of bare hyperlinks. Also, within the footer I wanted to just have a simple navigation to be able to access different pages link accounts or login. I selected to try and create a footer which contains a login which becomes an account page when the user has logged in. The navigation bar on the other hand, I have added a logo, which may not be self explanatory. So, I also included the name of the site and the search bar with a custom icon which followed my colour code.
 
@@ -120,6 +122,8 @@ Within the users template, I had created a very strong and linear code that was 
 At one point when creating the users, I had created them incorrectly. I had used a local variable that would be set to the users name. But my friend allowed me to test it from two sides. We where able to find that sometimes this would confuse the entire website and sometimes it would mean that we would trade accounts. Wierd as that may sound I had then began to use the flask_login module to help me create sessions and also allow for the me to add multipule users at once. This was an easy way to include this module and not alter my programming too much. As I have tested reasently the only issues that followed where simple ones which ment that the users id would be wrongly assigned. This was fixed by fixing the ids in the save file and altering how an ID is assigned upon creating an account. This took some time to create but once I had done the neccessarily adjustments to the db I had fixed the issues. Along with that the login and signup was not working correctly as well. So I changed a few things in the code so that people can sign in and signup and the site would respond correctly.
 
 I had altered the run.py file to make sure that the file was in the correct mode after development so none of the debug logs where externally accessable.
+
+There was issues with the redirects as they would not be able to sent the user to where they must go. So I changed them to do call functions instead. Now the user can add a page and a comment to a page without any issues.
 
 ## Finalizing
 I have asked for my friends' opinion on the site. I have shown them the site and they have discussed with me that the idea, layout and structure suit what I am after. I truly agree with this opinion on how the site is and how it works.
