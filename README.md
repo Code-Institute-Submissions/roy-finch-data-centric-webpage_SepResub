@@ -146,8 +146,19 @@ If you would like to test my website from the point of view of a person who has 
 
 I have chosen to change the way on which the login page looks as the I want the page to be simplier. I want to make sure that a user can sign up and login using just a username and a password, this does make the website a little insecure and needs to be more revised, if placed within a practical instance but for this simple form board I feel as though the website is just a simple form board where an account can allow a user to create a comment on a board.
 
-![Previous Login Page Design](static/img/wireframe.PNG)
-This is the wireframe of the login page and is the original design of the wireframe.
+![Wireframe Login Page Design](static/img/wireframe.PNG)
+This is the wireframe design as a whole, it includes its directions and some way that the pages will interact with each other.
+
+No relative difference was made to the home and other pages page within the final and the wireframe as a comparison.
+
+As the wireframe page_template was originally designed, I have changed it in comparison now, as I gave three tags instead of the 4 tags as the final version.
+
+Within the wireframe design, I have changed the login page, so that it doesn't have several forms and instead just has two buttons for login and signup.
+
+![Wireframe Login Page Design](static/img/wireframe.PNG)
+![Wireframe Login Page Design](static/img/wireframe.PNG)
+![Wireframe Login Page Design](static/img/wireframe.PNG)
+![Wireframe Login Page Design](static/img/wireframe.PNG)
 
 ![This is the final homepage.](static/img/homepage.PNG)
 On the homepage, I have added a large portion of information to talk about the site and what the site does and how to use it.
